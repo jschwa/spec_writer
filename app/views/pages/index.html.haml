@@ -1,0 +1,7 @@
+%h1 Pages
+- @pages.each do |page|
+  .page
+    = link_to page.name, page_features_path(page)
+
+%p
+  = link_to "New Page",  new_page_path
