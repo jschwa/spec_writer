@@ -1,3 +1,19 @@
 %h1
   Page
   = @page.name
+
+= link_to "Add feature", "#add-feature", class: "add-feature-link"
+
+.feature_list
+  - @list_features.each do |feature|
+    .single_feature
+      = feature.title
+      = feature.front_end
+      = feature.back_end
+
+= semantic_form_for [@page, @feature], remote: true do |f|
+  = f.input :title
+  = f.input :front_end
+  = f.input :back_end
+  = f.action :submit
+  = f.action :cancel
