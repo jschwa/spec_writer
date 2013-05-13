@@ -16,4 +16,10 @@ class PagesController < ApplicationController
       render :new
     end
   end
+
+  def reorder_features
+    Page.find(params[:page_id]).reorder_features(params[:new_order])
+    render nothing: true
+  end
+
 end

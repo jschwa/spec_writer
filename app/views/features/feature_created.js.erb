@@ -1,1 +1,2 @@
-$("form.feature").slideUp();
+$(".feature-form").slideUp();
+$(".feature-list").prepend("<%= escape_javascript(render(partial: "feature", locals: {feature: @feature})) %>");
