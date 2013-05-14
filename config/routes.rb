@@ -14,8 +14,8 @@ SpecWriter::Application.routes.draw do
   #   resources :products
 
   resources :pages do
-    post "/reorder_features" => "pages#reorder_features"
-    resources :features
+    post "/reorder_items" => "pages#reorder_items"
+    resources :items
   end
   root :to => 'pages#index'
 

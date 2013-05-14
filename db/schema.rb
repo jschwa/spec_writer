@@ -11,16 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506134303) do
+ActiveRecord::Schema.define(:version => 20130514142235) do
+
+  create_table "dividers", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "features", :force => true do |t|
     t.string   "title"
     t.text     "front_end"
     t.text     "back_end"
-    t.integer  "position"
-    t.integer  "page_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.integer  "page_id"
+    t.integer  "itemizable_id"
+    t.string   "itemizable_type"
+    t.integer  "position"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "pages", :force => true do |t|

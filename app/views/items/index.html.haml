@@ -1,0 +1,12 @@
+%h1
+  Page
+  = @page.name
+
+= link_to "Add feature", "#add-feature", class: "add-feature-link"
+= hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
+.feature-form.hidden
+  = render partial: "feature_form"
+
+%ul.item-list
+  - @list_items.each do |single_item|
+    = render partial: "feature", locals: {item: single_item}

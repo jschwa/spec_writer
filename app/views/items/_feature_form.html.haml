@@ -1,0 +1,9 @@
+= semantic_form_for [@page, @feature_item], remote: true do |f|
+  = f.input :position, as: :hidden
+  = f.input :itemizable_type, as: :hidden
+  = f.semantic_fields_for :itemizable do |itemizable_f|
+    = itemizable_f.input :title
+    = itemizable_f.input :front_end
+    = itemizable_f.input :back_end
+  = f.action :submit
+  = link_to "Cancel", "#cancel", class: "cancel"
