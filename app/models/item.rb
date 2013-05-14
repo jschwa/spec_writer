@@ -1,9 +1,17 @@
 class Item < ActiveRecord::Base
+
+  ITEMIZABLE_TYPES = ["Feature", "Divider"]
+
   attr_accessible :page_id, :position, :itemizable, :itemizable_attributes, :itemizable_type
-
-
 
   belongs_to :itemizable, polymorphic: true
   accepts_nested_attributes_for :itemizable
+
+  protected
+
+  def build_itemizable(params, assignment_options)
+    raise "Unknown client_type: #{itemizable_type}" unless ITEMIZABLE_TYPES.include?(itemizable_type)
+    self.itemizable = itemizable_type.constantize.new(params)
+  end
 
 end
