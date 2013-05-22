@@ -10,4 +10,4 @@
 
 %ul.item-list
   - @list_items.each do |single_item|
-    = render partial: single_item.itemizable_type.downcase, locals: {item: single_item}
+    = render partial: "item", locals: {item: single_item}

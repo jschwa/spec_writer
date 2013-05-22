@@ -1,2 +1,2 @@
 $(".item-form").slideUp();
-$(".item-list").prepend("<%= escape_javascript(render(partial: @item.itemizable_type.downcase, locals: {item: @item})) %>");
+$(".item-list").prepend("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
