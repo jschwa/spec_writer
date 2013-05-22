@@ -1,2 +1,2 @@
-$(".feature-form").html("<%= escape_javascript(render(partial: "feature_form")) %>");
-window.initFeatureForm();
+$(".item-form").html("<%= escape_javascript(render partial: "#{@item.itemizable_type.downcase}_form") %>");
+window.initItemForm();

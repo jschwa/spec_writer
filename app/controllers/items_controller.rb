@@ -1,8 +1,13 @@
 class ItemsController < ApplicationController
 
+  def item_form
+    @page = Page.find(params[:page_id])
+    item_class = params[:item_type].constantize
+    @item = Item.new(position: @page.items.size, itemizable: item_class.new())
+  end
+
   def index
     @page = Page.find(params[:page_id])
-    @feature_item = Item.new(position: @page.items.size, itemizable: Feature.new())
     @list_items = @page.items
   end
 

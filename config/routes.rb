@@ -15,6 +15,7 @@ SpecWriter::Application.routes.draw do
 
   resources :pages do
     post "/reorder_items" => "pages#reorder_items"
+    get "/item_form/:item_type" => "items#item_form", as: :item_form
     resources :items
   end
   root :to => 'pages#index'

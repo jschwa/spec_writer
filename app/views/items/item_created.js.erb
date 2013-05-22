@@ -1,2 +1,2 @@
-$(".feature-form").slideUp();
-$(".feature-list").prepend("<%= escape_javascript(render(partial: "feature", locals: {feature: @feature})) %>");
+$(".item-form").slideUp();
+$(".item-list").prepend("<%= escape_javascript(render(partial: @item.itemizable_type.downcase, locals: {item: @item})) %>");

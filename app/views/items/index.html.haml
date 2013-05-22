@@ -2,11 +2,12 @@
   Page
   = @page.name
 
-= link_to "Add feature", "#add-feature", class: "add-feature-link"
+= link_to "Add feature", page_item_form_path(@page, item_type: "Feature"), class: "add-feature-link", remote: true
+= link_to "Add divider", page_item_form_path(@page, item_type: "Divider"), class: "add-divider-link", remote: true
 = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
-.feature-form.hidden
-  = render partial: "feature_form"
+
+.item-form.hidden
 
 %ul.item-list
   - @list_items.each do |single_item|
-    = render partial: "feature", locals: {item: single_item}
+    = render partial: single_item.itemizable_type.downcase, locals: {item: single_item}
