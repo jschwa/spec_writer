@@ -2,9 +2,21 @@
   display: none;
 }
 
-.input_fields {
+form, .item-list {
   li {
-    list-style-type:none;
+    list-style: none;
   }
+}
+
+ul {
+  margin: 0;
+}
+
+.page-content {
+  padding-left: 20px;
+}
+
+.cancel {
+  margin-left: 10px;
 }
 

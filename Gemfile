@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'haml-rails', '~> 0.3.5'
 gem 'formtastic'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'formtastic-bootstrap'
 
 
 # Bundle edge Rails instead:
