@@ -1,7 +1,7 @@
-%h1 Pages
+%h1 Specs
+%p
+  = link_to "New Spec",  new_page_path, :class => "btn btn-primary"
+
 - @pages.each do |page|
   .page
     = link_to page.name, page_items_path(page)
-
-%p
-  = link_to "New Page",  new_page_path

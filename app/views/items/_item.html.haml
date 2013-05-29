@@ -1,4 +1,6 @@
 %li.item{data: {position: item.position}}
   = render(partial: item.itemizable_type.downcase, locals: {item.itemizable_type.downcase.to_sym => item.itemizable})
-  = link_to "Edit", "#edit"
+  = link_to "Edit", edit_page_item_path(@page, item), remote: true
+  = link_to "Delete", page_item_path(@page, item), method: :delete, remote: true
+  .edit-form
   %hr

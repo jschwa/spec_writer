@@ -14,4 +14,4 @@ $ =>
 
 @initItemForm = ->
   $(".cancel").click ->
-    $(".item-form").slideUp()
+    $(this).parents(".item-form, .edit-form").slideUp()

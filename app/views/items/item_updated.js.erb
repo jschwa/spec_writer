@@ -1,0 +1,4 @@
+$("li.item[data-position=<%=@item.position%>] .edit-form").slideUp(function () {
+    $("li.item[data-position=<%=@item.position%>]").html("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
+});
+

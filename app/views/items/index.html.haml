@@ -1,12 +1,18 @@
-%h1
-  Page
-  = @page.name
+.row-fluid
+  %h1
+    Page
+    = @page.name
+  %h3{:class => "span4"}
+    Frontend
+  %h3{:class => "span4"}
+    Backend
 
-= link_to "Add feature", page_item_form_path(@page, item_type: "Feature"), class: "add-feature-link", remote: true
-= link_to "Add divider", page_item_form_path(@page, item_type: "Divider"), class: "add-divider-link", remote: true
-= hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
+.row-fluid.span4
+  = link_to "Add feature", page_item_form_path(@page, item_type: "Feature"), class: "add-feature-link", remote: true
+  = link_to "Add divider", page_item_form_path(@page, item_type: "Divider"), class: "add-divider-link", remote: true
+  = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
 
-.item-form.hidden
+.item-form.hide
 
 %ul.item-list
   - @list_items.each do |single_item|

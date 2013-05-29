@@ -4,8 +4,12 @@ class Item < ActiveRecord::Base
 
   attr_accessible :page_id, :position, :itemizable, :itemizable_attributes, :itemizable_type
 
-  belongs_to :itemizable, polymorphic: true
+  belongs_to :itemizable, polymorphic: true, dependent: :destroy
   accepts_nested_attributes_for :itemizable
+
+  def decrease_position
+    update_attribute(:position, position - 1)
+  end
 
   protected
 
@@ -13,5 +17,7 @@ class Item < ActiveRecord::Base
     raise "Unknown client_type: #{itemizable_type}" unless ITEMIZABLE_TYPES.include?(itemizable_type)
     self.itemizable = itemizable_type.constantize.new(params)
   end
+
+
 
 end

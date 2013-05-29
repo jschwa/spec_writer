@@ -1,3 +1,10 @@
-.hidden {
+.hide {
   display: none;
 }
+
+.input_fields {
+  li {
+    list-style-type:none;
+  }
+}
+

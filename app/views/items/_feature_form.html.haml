@@ -2,8 +2,10 @@
   = f.input :position, as: :hidden
   = f.input :itemizable_type, as: :hidden
   = f.semantic_fields_for :itemizable do |itemizable_f|
-    = itemizable_f.input :title
-    = itemizable_f.input :front_end
-    = itemizable_f.input :back_end
-  = f.action :submit
-  = link_to "Cancel", "#cancel", class: "cancel"
+    .input_fields
+      = itemizable_f.input :title
+      .controls-row
+        = itemizable_f.input :front_end, :wrapper_html => { :class => " span4"}, :input_html => { :class => "span4" }
+        = itemizable_f.input :back_end, :wrapper_html => { :class => "span4"}, :input_html => { :class => "span4" }
+      = f.action :submit, :button_html => { :class => "btn btn-success" }
+      = link_to "Cancel", "#cancel", class: "cancel"

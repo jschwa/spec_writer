@@ -21,4 +21,25 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @page = Page.find(params[:page_id])
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @page = Page.find(params[:page_id])
+    @item = Item.find(params[:id])
+    if @item.update_attributes(params[:item])
+      render :item_updated
+    else
+      render :item_update_invalid
+    end
+  end
+
+  def destroy
+    @page = Page.find(params[:page_id])
+    @item = Item.find(params[:id])
+    @page.destroy_item(@item)
+  end
+
 end
