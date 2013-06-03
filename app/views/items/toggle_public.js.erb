@@ -1,0 +1,5 @@
+<% if @page.public? %>
+$(".public-url-container").html("<%= page_public_url(@page) %>")
+<%else%>
+$(".public-url-container").html("")
+<%end%>

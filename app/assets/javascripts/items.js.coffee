@@ -10,6 +10,8 @@ $ =>
       )
   )
   $(".item-list").disableSelection()
+  $("#page_public").change ->
+    $(this).parents("form").submit()
 
 @initItemForm = ->
   $(".cancel").click ->

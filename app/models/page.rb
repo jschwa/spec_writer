@@ -21,4 +21,8 @@ class Page < ActiveRecord::Base
     items.delete item
   end
 
+  def toggle_public
+    update_attribute(:public, !public)
+  end
+
 end

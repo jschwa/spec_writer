@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_filter :authenticate_user!, :assign_page
+  before_filter :authenticate_user!, :assign_page, except: [:index_read_only]
   before_filter :assign_item, only: [:edit, :update, :destroy]
 
   def item_form
@@ -10,6 +10,15 @@ class ItemsController < ApplicationController
 
   def index
     @list_items = @page.items
+  end
+
+  def index_read_only
+    @page = Page.where(public: true, id: params[:page_id]).first
+    @list_items = @page.items
+  end
+
+  def toggle_public
+    @page.toggle_public
   end
 
   def create

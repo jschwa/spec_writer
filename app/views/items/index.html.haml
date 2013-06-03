@@ -25,3 +25,8 @@
       %ul.item-list
         - @list_items.each do |single_item|
           = render partial: "item", locals: {item: single_item}
+    = semantic_form_for @page, url: page_toggle_public_path(@page), remote: true do |f|
+      = f.input :public, as: :boolean
+      .public-url-container
+        - if @page.public?
+          = page_public_url(@page)
