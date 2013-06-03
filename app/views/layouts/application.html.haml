@@ -24,9 +24,10 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="/") SpecWriter
-          .container.nav-collapse
-            %ul.nav
+          %a.brand{href: root_url} SpecWriter
+          .nav-collapse.collapse.navbar-responsive-collapse
+            %ul.nav.pull-right
+              %li= link_to "Logout", destroy_user_session_path, method: :delete
     .container-fluid
       = yield
       %footer

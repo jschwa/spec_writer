@@ -1,18 +1,18 @@
 class ItemsController < ApplicationController
 
+  before_filter :authenticate_user!, :assign_page
+  before_filter :assign_item, only: [:edit, :update, :destroy]
+
   def item_form
-    @page = Page.find(params[:page_id])
     item_class = params[:item_type].constantize
     @item = Item.new(position: @page.items.size, itemizable: item_class.new())
   end
 
   def index
-    @page = Page.find(params[:page_id])
     @list_items = @page.items
   end
 
   def create
-    @page = Page.find(params[:page_id])
     @item = Item.new(params[:item])
     if @page.items << @item
       render :item_created
@@ -22,13 +22,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @page = Page.find(params[:page_id])
-    @item = Item.find(params[:id])
   end
 
   def update
-    @page = Page.find(params[:page_id])
-    @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
       render :item_updated
     else
@@ -37,9 +33,17 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @page = Page.find(params[:page_id])
-    @item = Item.find(params[:id])
     @page.destroy_item(@item)
+  end
+
+  private
+
+  def assign_page
+    @page = current_user.pages.find(params[:page_id])
+  end
+
+  def assign_item
+    @item = @page.items.find(params[:id])
   end
 
 end
