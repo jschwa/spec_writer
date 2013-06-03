@@ -14,6 +14,7 @@ $ =>
 @initItemForm = ->
   $(".cancel").click ->
     $(this).parents(".item-form, .edit-form").slideUp()
+    $(this).parents(".item").find(".item-view-container").show()
 
 @fixItemsOrdering = ->
   $("li.item").each (index) ->

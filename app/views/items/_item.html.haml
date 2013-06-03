@@ -1,9 +1,11 @@
 %li.item{data: {position: item.position}}
-  = render(partial: item.itemizable_type.downcase, locals: {item.itemizable_type.downcase.to_sym => item.itemizable})
-  .row-fluid
-    = link_to "Edit", edit_page_item_path(@page, item), remote: true
-    = link_to "Delete", page_item_path(@page, item), method: :delete, remote: true
+  .item-view-container
+    = render(partial: item.itemizable_type.downcase, locals: {item.itemizable_type.downcase.to_sym => item.itemizable})
+    .row-fluid
+      = link_to "Edit", edit_page_item_path(@page, item), remote: true
+      = link_to "Delete", page_item_path(@page, item), method: :delete, remote: true
+      %strong{:data => { :toggle => "tooltip"}} first tooltip
+
+
   .row-fluid
     .edit-form
-  .row-fluid
-    %hr

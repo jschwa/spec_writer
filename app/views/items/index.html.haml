@@ -1,26 +1,27 @@
-.row-fluid
-  %h1
-    Page
-    = @page.name
+.spec_page
+  .spec-content
+    .row-fluid
+      %h1
+        = @page.name
 
-.row-fluid.page-content
+    .row-fluid.page-content
 
-  .row-fluid
-    .span4
-      %h3
-        Frontend
-    .span4
-      %h3
-        Backend
+      .row-fluid
+        .span6
+          %h3
+            Frontend
+        .span6
+          %h3
+            Backend
 
-  .row-fluid
-    = link_to "Add feature", page_item_form_path(@page, item_type: "Feature"), class: "add-feature-link", remote: true
-    = link_to "Add divider", page_item_form_path(@page, item_type: "Divider"), class: "add-divider-link", remote: true
-    = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
+      .row-fluid.spec-header
+        = link_to "Add feature", page_item_form_path(@page, item_type: "Feature"), class: "add-feature-link", remote: true
+        = link_to "Add divider", page_item_form_path(@page, item_type: "Divider"), class: "add-divider-link", remote: true
+        = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
 
-  .row-fluid
-    .item-form.hide
+      .row-fluid
+        .item-form.hide
 
-  %ul.item-list
-    - @list_items.each do |single_item|
-      = render partial: "item", locals: {item: single_item}
+      %ul.item-list
+        - @list_items.each do |single_item|
+          = render partial: "item", locals: {item: single_item}

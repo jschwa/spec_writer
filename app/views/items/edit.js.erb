@@ -1,2 +1,3 @@
 $("li.item[data-position=<%=@item.position%>] .edit-form").html("<%= escape_javascript(render partial: "#{@item.itemizable_type.downcase}_form") %>").slideDown()
+$("li.item[data-position=<%=@item.position%>] .item-view-container").hide();
 window.initItemForm();
