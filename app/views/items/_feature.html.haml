@@ -1,7 +1,7 @@
 .row-fluid
   %h3= feature.title
 .row-fluid
-  .span6
-    %p= feature.front_end
-  .span6
-    %p= feature.back_end
+  .span6.textile
+    = RedCloth.new(feature.front_end).to_html.html_safe
+  .span6.textile
+    = RedCloth.new(feature.back_end).to_html.html_safe

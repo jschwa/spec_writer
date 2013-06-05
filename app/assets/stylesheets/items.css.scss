@@ -5,6 +5,14 @@
 form, .item-list {
   li {
     list-style: none;
+    .textile {
+      ul {
+        margin: 0 0 10px 25px;
+        li {
+          list-style: disc;
+        }
+      }
+    }
   }
 }
 
@@ -24,7 +32,7 @@ ul {
   text-align: center;
 }
 
-.hero-unit{
+.hero-unit {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
@@ -32,16 +40,16 @@ ul {
   padding-left: 10px;
 }
 
-.page-list{
+.page-list {
   font-size: 50px;
   line-height: 60px;
 }
 
-.spec_page{
+.spec_page {
   background: #E5E5E5;
 }
 
-.spec-content{
+.spec-content {
   width: 75%;
   margin: auto;
   background-color: white;
@@ -51,7 +59,7 @@ ul {
   padding-bottom: 30px;
 }
 
-.spec-header{
+.spec-header {
   background: #edf3fe;
   width: 100%;
   padding-top: 5px;
