@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'haml-rails', '~> 0.3.5'
 gem 'formtastic'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'bootstrap-sass-rails', '~> 2.3.1.1'
 gem 'formtastic-bootstrap'
 
 

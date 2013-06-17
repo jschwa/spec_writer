@@ -9,8 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require formtastic-bootstrap
+ *= require twitter/bootstrap
+ *= require twitter/bootstrap/_responsive
  *= require_self
  *= require_tree .
  *= require jquery.ui.all
- *= require formtastic-bootstrap
  */

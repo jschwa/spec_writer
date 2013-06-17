@@ -8,6 +8,8 @@ $ =>
       $.post(url, new_order: newOrder, ->
         fixItemsOrdering()
       )
+    handle: ".icon-move"
+    axis: "y"
   )
   $(".item-list").disableSelection()
   $("#page_public").change ->

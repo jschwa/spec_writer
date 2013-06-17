@@ -1,3 +1,6 @@
+@import "twitter/bootstrap/variables";
+@import "twitter/bootstrap/mixins";
+
 .hide {
   display: none;
 }
@@ -66,5 +69,37 @@ ul {
   padding-bottom: 5px;
 }
 
+.item {
+  position: relative;
+  .actions-container {
+    position: absolute;
+    left: -110px;
+    display: none;
+    background: white;
+    width: 90px;
+    padding: 5px 10px;
+    @include border-radius(15px);
+    i {
+      display: inline-block;
+    }
+  }
+  &:hover {
+    .actions-container {
+      display: block;
+    }
+  }
+}
+
+.feature-item {
+  .actions-container {
+    top: 15px;
+  }
+}
+
+.divider-item {
+  .actions-container {
+    top: -3px;
+  }
+}
 
 
