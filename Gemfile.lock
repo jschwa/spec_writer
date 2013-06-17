@@ -49,6 +49,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    curb (0.8.3)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -139,6 +140,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   coffee-rails (~> 3.2.1)
+  curb
   devise
   formtastic
   formtastic-bootstrap

@@ -1,0 +1,10 @@
+.project-select-modal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3 Select Pivotal Tracker Project to sync with
+  .modal-body
+    %ul
+      - @projects.each do |project|
+        %li= project["name"]
+  .modal-footer
+    %a.btn{:href => "#"} Cancel

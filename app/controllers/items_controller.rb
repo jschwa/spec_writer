@@ -45,6 +45,11 @@ class ItemsController < ApplicationController
     @page.destroy_item(@item)
   end
 
+  def sync_with_pt
+    @projects = PTClient.new.projects_list
+    render :show_project_select
+  end
+
   private
 
   def assign_page

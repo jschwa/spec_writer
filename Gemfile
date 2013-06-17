@@ -11,10 +11,9 @@ gem 'formtastic-bootstrap'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
 gem 'devise'
-
 gem 'RedCloth'
+gem 'curb'
 
 # Gems used only for assets and not required
 # in production environments by default.

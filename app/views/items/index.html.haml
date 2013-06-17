@@ -30,3 +30,6 @@
       .public-url-container
         - if @page.public?
           = link_to(page_public_url(@page), page_public_url(@page))
+
+    = link_to "Sync With Pivotal Tracker", page_sync_with_pt_path(@page), class: "btn btn-primary", remote: true
+    .project-select-container
