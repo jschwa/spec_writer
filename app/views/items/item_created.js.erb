@@ -1,2 +1,3 @@
 $(".item-form").slideUp();
 $(".item-list").prepend("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
+window.fixItemsOrdering();

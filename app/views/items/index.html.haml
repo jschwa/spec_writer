@@ -14,13 +14,9 @@
           %h3
             Backend
 
-      .row-fluid.spec-header
-        = link_to "Add feature", page_item_form_path(@page, item_type: "Feature"), class: "add-feature-link", remote: true
-        = link_to "Add divider", page_item_form_path(@page, item_type: "Divider"), class: "add-divider-link", remote: true
-        = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
+      = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
 
-      .row-fluid
-        .item-form.hide
+      = render partial: "insert_item", locals: {position: @list_items.size}
 
       %ul.item-list
         - @list_items.each do |single_item|

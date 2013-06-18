@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   def item_form
     item_class = params[:item_type].constantize
-    @item = Item.new(position: @page.items.size, itemizable: item_class.new())
+    @item = Item.new(position: params[:item_position], itemizable: item_class.new())
   end
 
   def index
