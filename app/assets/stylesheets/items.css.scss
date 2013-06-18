@@ -86,6 +86,10 @@ ul {
   &:hover {
     .actions-container {
       display: block;
+      cursor: pointer;
+      .icon-move{
+        cursor: move;
+      }
     }
   }
 }
@@ -101,5 +105,3 @@ ul {
     top: -3px;
   }
 }
-
-
