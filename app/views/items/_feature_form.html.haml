@@ -5,10 +5,10 @@
     .row-fluid
       = itemizable_f.input :title, input_html: {class: "span4"}
     .row-fluid
-      .span4
-        = itemizable_f.input :front_end, input_html: {class: "span12", rows: "10"}
-      .span4
-        = itemizable_f.input :back_end, input_html: {class: "span12", rows: "10"}
+      .span6
+        = itemizable_f.input :front_end, input_html: {class: "span11", rows: "10"}
+      .span6
+        = itemizable_f.input :back_end, input_html: {class: "span11", rows: "10"}
     .row-fluid
       .span4
         = f.action :submit, :button_html => { :class => "btn btn-success" }
