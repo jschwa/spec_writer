@@ -1,2 +1,3 @@
 $(".insert-item-container[data-position=<%= @item.position %>] .item-form").html("<%= escape_javascript(render partial: "#{@item.itemizable_type.downcase}_form") %>").slideDown()
 window.initItemForm();
+var myCodeMirror = CodeMirror.fromTextArea(item_itemizable_attributes_front_end,{});
