@@ -25,6 +25,6 @@ $ =>
     $(this).data("position", $("li.item").length - index - 1)
   $(".insert-item-container").each (index) ->
     position = $(".insert-item-container").length - index - 1
-    $(this).data("position", position)
+    $(this).attr("data-position", position)
     $(this).find("a").each ->
       $(this).attr("href", $(this).attr("href").replace(/item_position=\d+/, "item_position=#{position}"))
