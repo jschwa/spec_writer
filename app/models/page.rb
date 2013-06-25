@@ -12,6 +12,19 @@ class Page < ActiveRecord::Base
     end
   end
 
+  def add_item new_item
+    if items << new_item
+      items.each do |a_item|
+        if a_item != new_item && a_item.position >= new_item.position
+          a_item.update_attribute(:position, a_item.position + 1)
+        end
+      end
+      true
+    else
+      false
+    end
+  end
+
   def destroy_item item
     index = items.to_a.index(item)
     (0..(index-1)).each do |i|
@@ -22,6 +35,10 @@ class Page < ActiveRecord::Base
 
   def toggle_public
     update_attribute(:public, !public)
+  end
+
+  def highest? item
+    item.position == items.count - 1
   end
 
 end

@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
-    if @page.items << @item
+    if @page.add_item(@item)
       render :item_created
     else
       render :item_invalid

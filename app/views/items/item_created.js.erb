@@ -1,3 +1,7 @@
 $(".item-form").slideUp();
+<% if @page.highest?(@item) %>
 $(".item-list").prepend("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
+<%else %>
+$("li.item[data-position=<%=@item.position%>]").after("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
+<%end%>
 window.fixItemsOrdering();

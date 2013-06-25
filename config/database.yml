@@ -1,26 +1,29 @@
 development:
+  default: &default
   adapter: postgresql
-  username: Jason
-  password: admin
+  username: postgres
+  password: "ols13"
   host: localhost
   port: 5432
   pool: 5
-  database: spec_writer development
+  database: spec_writer_development
 
 test:
+  default: &default
   adapter: postgresql
-  username: Jason
-  password: admin
+  username: postgres
+  password: "ols13"
   host: localhost
   port: 5432
   pool: 5
-  database: spec_writer test
+  database: spec_writer_test
 
 production:
+  default: &default
   adapter: postgresql
-  username: Jason
-  password: admin
+  username: postgres
+  password: "ols13"
   host: localhost
   port: 5432
   pool: 5
-  database: spec_writer production
+  database: spec_writer_production
