@@ -2,6 +2,6 @@
   %h3= feature.title
 .row-fluid
   .span6.textile
-    %pre= textile_to_html(feature.front_end)
+    %code= textile_to_html(feature.front_end)
   .span6.textile
-    %pre= RedCloth.new(feature.back_end).to_html.html_safe
+    = RedCloth.new(feature.back_end).to_html.html_safe
