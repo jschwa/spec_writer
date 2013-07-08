@@ -16,7 +16,7 @@
 
       = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
 
-      = render partial: "insert_item", locals: {position: @list_items.size}
+      = render partial: "insert_item", locals: {position: @list_items.size, show_cancel: false}
 
       %ul.item-list
         - @list_items.each do |single_item|

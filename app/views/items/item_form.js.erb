@@ -1,2 +1,4 @@
-$(".insert-item-container[data-position=<%= @item.position %>] .item-form").html("<%= escape_javascript(render partial: "#{@item.itemizable_type.downcase}_form") %>").slideDown()
+$(".insert-item-container[data-position=<%= @item.position %>] .item-form").html("<%= escape_javascript(render partial: "#{@item.itemizable_type.downcase}_form") %>").slideDown();
+$(".item .insert-item-container[data-position=<%= @item.position %>] .blue-band").hide();
+$(".item[data-position=<%= @item.position %>]").removeClass("blue-band-visible");
 window.initItemForm();

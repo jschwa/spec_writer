@@ -1,12 +1,18 @@
 %li.item{data: {position: item.position}, class: "#{item.itemizable_type.downcase}-item"}
-  .item-view-container
-    = render(partial: item.itemizable_type.downcase, locals: {item.itemizable_type.downcase.to_sym => item.itemizable})
-    .row-fluid.actions-container
-      = link_to "Edit", edit_page_item_path(@page, item), remote: true
-      = link_to "Delete", page_item_path(@page, item), method: :delete, remote: true
-      %i.icon-move
+  .item-wrapper
+    .item-view-container
+      = render(partial: item.itemizable_type.downcase, locals: {item.itemizable_type.downcase.to_sym => item.itemizable})
+      .row-fluid.actions-container
+        = link_to "Edit", edit_page_item_path(@page, item), remote: true
+        = link_to "Delete", page_item_path(@page, item), method: :delete, remote: true
+        %i.icon-move
 
-  .row-fluid
-    .edit-form
+    .row-fluid
+      .edit-form
 
-  = render partial: "insert_item", locals: {position: item.position}
+    = render partial: "insert_item", locals: {position: item.position, show_cancel: true}
+
+  .add-here
+    .prompt-container
+      .prompt.prompt-marker Add here
+      .line.prompt-marker

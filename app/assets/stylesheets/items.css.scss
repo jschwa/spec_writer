@@ -62,7 +62,7 @@ ul {
   padding-bottom: 30px;
 }
 
-.spec-header {
+.blue-band {
   background: #edf3fe;
   width: 100%;
   padding-top: 5px;
@@ -71,25 +71,98 @@ ul {
 }
 
 .item {
-  position: relative;
-  .actions-container {
-    position: absolute;
-    left: -110px;
-    display: none;
-    background: white;
-    width: 90px;
-    padding: 5px 10px;
-    @include border-radius(15px);
-    i {
-      display: inline-block;
+  .blue-band {
+    position: relative;
+    .cancel-item-container {
+      color: red;
+      margin-right: 55px;
+      position: absolute;
+      background: #edf3fe;
+      width: 99px;
+      height: 30px;
+      left: -105px;
+      top: 0px;
+      line-height: 30px;
+      font-size: 12px;
+      padding-left: 7px;
     }
   }
-  &:hover {
+}
+
+.item {
+  position: relative;
+  .item-wrapper {
     .actions-container {
-      display: block;
-      cursor: pointer;
-      .icon-move{
-        cursor: move;
+      position: absolute;
+      left: -110px;
+      display: none;
+      background: white;
+      width: 90px;
+      padding: 5px 10px;
+      @include border-radius(15px);
+      i {
+        display: inline-block;
+      }
+    }
+    &:hover {
+      .actions-container {
+        display: block;
+        cursor: pointer;
+        .icon-move {
+          cursor: move;
+        }
+      }
+    }
+    .insert-item-container {
+      .blue-band {
+        display: none;
+      }
+    }
+  }
+  .add-here {
+    position: relative;
+    .prompt-container {
+      position: absolute;
+      width: 200px;
+      height: 20px;
+      left: -100px;
+      top: -8px;
+      z-index: 100;
+      .prompt {
+        background: black;
+        opacity: 0.6;
+        color: white;
+        text-shadow: black 0.1em 0.1em 0.2em;
+        @include border-radius(15px);
+        text-align: center;
+        float: left;
+        width: 80px;
+      }
+      .line {
+        height: 1px;
+        width: 80px;
+        border-bottom: 1px dashed black;
+        float: left;
+        margin-top: 10px;
+      }
+      &:hover {
+        .prompt-marker {
+          display: block;
+        }
+      }
+      .prompt-marker {
+        display: none;
+      }
+    }
+  }
+  &.blue-band-visible {
+    .add-here {
+      .prompt-container {
+        &:hover {
+          .prompt-marker {
+            display: none;
+          }
+        }
       }
     }
   }
