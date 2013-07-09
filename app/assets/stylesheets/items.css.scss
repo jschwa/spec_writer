@@ -179,3 +179,17 @@ ul {
     top: -3px;
   }
 }
+
+.divider {
+  position: relative;
+  .divider-line {
+    position:  absolute;
+    border-bottom: 1px solid black;
+    width:  100%;
+    height: 1px;
+    z-index: -1;
+    bottom: 5px;
+  }
+  .title {
+  }
+}
