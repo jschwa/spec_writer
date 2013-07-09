@@ -1,7 +1,21 @@
 class Feature < ActiveRecord::Base
+  DEFAULT_VALUE = <<END
+  *User Story*
+
+
+
+  *Logic*
+
+
+
+  *Acceptance Criteria*
+END
+
   attr_accessible :back_end, :front_end, :title
 
   validate :at_least_one_filed_defined
+  after_initialize :set_default_values
+  before_validation :check_default_values
 
   private
 
@@ -10,6 +24,22 @@ class Feature < ActiveRecord::Base
       [:title, :front_end, :back_end].each do |field|
         errors.add(field, "at least one of title, front end and back end should be definded")
       end
+    end
+  end
+
+  def set_default_values
+    if new_record?
+      self.back_end = DEFAULT_VALUE if back_end.blank?
+      self.front_end = DEFAULT_VALUE if front_end.blank?
+    end
+  end
+
+  def check_default_values
+    if back_end == DEFAULT_VALUE
+      self.back_end = nil
+    end
+    if front_end == DEFAULT_VALUE
+      self.front_end = nil
     end
   end
 
