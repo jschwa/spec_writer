@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item.set_default_values
   end
 
   def update

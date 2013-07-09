@@ -11,6 +11,10 @@ class Item < ActiveRecord::Base
     update_attribute(:position, position - 1)
   end
 
+  def set_default_values
+    itemizable.set_default_values
+  end
+
   protected
 
   def build_itemizable(params, assignment_options)
