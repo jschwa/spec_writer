@@ -1,15 +1,5 @@
 class Feature < ActiveRecord::Base
-  DEFAULT_VALUE = <<END
-  *User Story*
-
-
-
-  *Logic*
-
-
-
-  *Acceptance Criteria*
-END
+  DEFAULT_VALUE = "*User Story*\r\n\r\n\r\n*Logic*\r\n\r\n\r\n*Acceptance Criteria*\r\n\r\n"
 
   attr_accessible :back_end, :front_end, :title
 
@@ -36,10 +26,10 @@ END
 
   def check_default_values
     if back_end == DEFAULT_VALUE
-      self.back_end = nil
+      self.back_end = ""
     end
     if front_end == DEFAULT_VALUE
-      self.front_end = nil
+      self.front_end = ""
     end
   end
 
