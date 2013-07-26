@@ -10,9 +10,11 @@ $ =>
       )
     handle: ".icon-move"
     axis: "y"
-    tolerance: "pointer"
     revert: true
     opacity: 0.7
+    forcePlaceholderSize: true
+    create: ->
+      $(this).height($(this).height())
   )
   $(".item-list").disableSelection()
   $("#page_public").change ->
