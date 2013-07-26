@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update_attributes(params[:item])
+    if @page.update_item(@item, params[:item])
       render :item_updated
     else
       render :item_update_invalid

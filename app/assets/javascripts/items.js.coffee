@@ -10,6 +10,8 @@ $ =>
       )
     handle: ".icon-move"
     axis: "y"
+    tolerance: "pointer"
+    revert: true
   )
   $(".item-list").disableSelection()
   $("#page_public").change ->

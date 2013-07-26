@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  has_many :pages, dependent: :destroy
+  has_many :pages, dependent: :destroy, order: "pages.updated_at desc"
 
 end

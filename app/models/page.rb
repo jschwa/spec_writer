@@ -10,6 +10,7 @@ class Page < ActiveRecord::Base
       new_position = items.size - 1 - new_order.index(a_item.position.to_s)
       a_item.update_attribute(:position, new_position)
     end
+    touch
   end
 
   def add_item new_item
@@ -19,6 +20,16 @@ class Page < ActiveRecord::Base
           a_item.update_attribute(:position, a_item.position + 1)
         end
       end
+      touch
+      true
+    else
+      false
+    end
+  end
+
+  def update_item item, item_params
+    if item.update_attributes(item_params)
+      touch
       true
     else
       false
@@ -31,6 +42,7 @@ class Page < ActiveRecord::Base
       items[i].decrease_position
     end
     items.delete item
+    touch
   end
 
   def toggle_public
@@ -40,5 +52,6 @@ class Page < ActiveRecord::Base
   def highest? item
     item.position == items.count - 1
   end
+
 
 end
