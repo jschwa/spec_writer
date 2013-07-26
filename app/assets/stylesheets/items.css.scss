@@ -95,18 +95,13 @@ ul {
       width: 90px;
       padding: 5px 10px;
       z-index: 100;
+      cursor: pointer;
+      .icon-move {
+        cursor: move;
+      }
       @include border-radius(15px);
       i {
         display: inline-block;
-      }
-    }
-    &:hover {
-      .actions-container {
-        display: block;
-        cursor: pointer;
-        .icon-move {
-          cursor: move;
-        }
       }
     }
     .insert-item-container {

@@ -12,11 +12,13 @@ $ =>
     axis: "y"
     tolerance: "pointer"
     revert: true
+    opacity: 0.7
   )
   $(".item-list").disableSelection()
   $("#page_public").change ->
     $(this).parents("form").submit()
   initAddHere()
+  initActionsContainer()
 
 @initItemForm = ->
   $(".cancel").click ->
@@ -45,3 +47,26 @@ $ =>
   $(".cancel-item-container").click ->
     $(this).parents(".item").find(".insert-item-container .blue-band").hide()
     $(this).parents(".item").removeClass("blue-band-visible")
+
+@initActionsContainer = ->
+  $(".item").mouseenter ->
+    clearItemTimeout($(this))
+    hideAllActionContainers($(this))
+    $(this).find(".actions-container").show()
+  $(".item").mouseleave ->
+    actionsContainer = $(this).find(".actions-container")
+    timeout = setTimeout(->
+      actionsContainer.fadeOut()
+    , 1500)
+    $(this).data("actionsContainerTimeout", timeout)
+
+
+clearItemTimeout = (item) ->
+  if item.data("actionsContainerTimeout")
+    clearTimeout(item.data("actionsContainerTimeout"))
+
+@hideAllActionContainers = (currentItem) ->
+  $(".item").each ->
+    if(currentItem != $(this))
+      clearItemTimeout($(this))
+      $(this).find(".actions-container").hide()
