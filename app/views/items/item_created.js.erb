@@ -4,5 +4,7 @@ $(".item-list").prepend("<%= escape_javascript(render(partial: "item", locals: {
 <%else %>
 $("li.item[data-position=<%=@item.position%>]").after("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
 <%end%>
+$(".initial-item-container").hide();
+window.initActionsContainer();
 window.fixItemsOrdering();
 window.initAddHere();

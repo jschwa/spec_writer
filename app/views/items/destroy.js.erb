@@ -1,2 +1,5 @@
 $("li.item[data-position=<%=@item.position%>]").remove();
+<% if @page.items.empty? %>
+    $(".initial-item-container").show();
+<% end %>
 window.fixItemsOrdering();
