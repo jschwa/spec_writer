@@ -5,18 +5,9 @@
         = @page.name
 
     .row-fluid.page-content
-
-      .row-fluid
-        .span6
-          %h3
-            Frontend
-        .span6
-          %h3
-            Backend
-
       = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
 
-      = render partial: "insert_item", locals: {position: @list_items.size, show_cancel: false}
+      /= render partial: "insert_item", locals: {position: @list_items.size, show_cancel: false}
 
       %ul.item-list
         - @list_items.each do |single_item|

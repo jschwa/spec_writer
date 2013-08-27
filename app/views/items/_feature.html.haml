@@ -2,6 +2,8 @@
   %h3= feature.title
 .row-fluid
   .span6.textile
+    %h5= "Front end"
     = RedCloth.new(feature.front_end).to_html.html_safe
   .span6.textile
+    %h5= "Back end"
     = RedCloth.new(feature.back_end).to_html.html_safe

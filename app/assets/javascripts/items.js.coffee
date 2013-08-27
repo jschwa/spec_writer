@@ -13,8 +13,8 @@ $ =>
     revert: true
     opacity: 0.7
     forcePlaceholderSize: true
-    create: ->
-      $(this).height($(this).height())
+ #   create: ->
+ #     $(this).height($(this).height())
   )
   $(".item-list").disableSelection()
   $("#page_public").change ->
@@ -26,6 +26,10 @@ $ =>
   $(".cancel").click ->
     $(this).parents(".item-form, .edit-form").slideUp()
     $(this).parents(".item").find(".item-view-container").show()
+  $(".add_backend").click ->
+    $(this).parents(".item-form").find(".backend_textfield").show()
+
+
 
 @fixItemsOrdering = ->
   $("li.item").each (index) ->
@@ -59,7 +63,7 @@ $ =>
     actionsContainer = $(this).find(".actions-container")
     timeout = setTimeout(->
       actionsContainer.fadeOut()
-    , 1500)
+    , 1000)
     $(this).data("actionsContainerTimeout", timeout)
 
 

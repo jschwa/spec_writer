@@ -1,6 +1,32 @@
 @import "twitter/bootstrap/variables";
 @import "twitter/bootstrap/mixins";
 
+li {
+  line-height: 140%;
+}
+
+body {
+  font-size: 14px;
+  font-family: lucida grande, verdana, sans-serif;;
+}
+
+p {
+  margin-top: 4px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 20px;
+  padding-top: 10px;
+}
+
+h2 {
+  font-size: 25px;
+  line-height: 0px;
+  padding-top: 15px;
+  padding-bottom: 8px;
+}
+
 .hide {
   display: none;
 }
@@ -53,7 +79,7 @@ ul {
 }
 
 .spec-content {
-  width: 75%;
+  width: 70%;
   margin: auto;
   background-color: white;
   box-shadow: 5px 5px 6px #888888;
@@ -69,6 +95,7 @@ ul {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 5px;
+  margin-bottom: 10px;
   .cancel-item-container {
     color: red;
     margin-right: 55px;
@@ -89,10 +116,10 @@ ul {
   .item-wrapper {
     .actions-container {
       position: absolute;
-      left: -110px;
+      left: -102px;
       display: none;
       background: white;
-      width: 90px;
+      width: 92px;
       padding: 5px 10px;
       z-index: 100;
       cursor: pointer;
@@ -160,8 +187,16 @@ ul {
 }
 
 .feature-item {
+  padding-top: 0px;
+  margin-top: 18px;
+  /* background-color: #FCFCFC; */
+  margin-right: -10px;
+  padding-right: 10px;
+  margin-left: -50px;
+  padding-left: 50px;
+  /*box-shadow: 2px 2px 5px #888888; */
   .actions-container {
-    top: 15px;
+    top: 19px;
   }
 }
 

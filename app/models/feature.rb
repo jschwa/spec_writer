@@ -1,5 +1,5 @@
 class Feature < ActiveRecord::Base
-  DEFAULT_VALUE = "*User Story*\r\n\r\n\r\n*Logic*\r\n\r\n\r\n*Acceptance Criteria*\r\n"
+  DEFAULT_VALUE = "_User Story_\r\n\r\n\r\n_Logic_\r\n\r\n\r\n_Acceptance Criteria_\r\n"
 
   attr_accessible :back_end, :front_end, :title
 
