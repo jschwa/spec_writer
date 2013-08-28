@@ -132,6 +132,17 @@ ul {
       }
     }
     .insert-item-container {
+      .front-end-container{
+        position: relative;
+        .control-label{
+          display: none;
+        }
+        .add-backend{
+          position: absolute;
+          right: 0;
+          bottom: 115px;
+        }
+      }
       .blue-band {
         display: none;
       }

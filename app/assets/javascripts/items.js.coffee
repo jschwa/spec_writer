@@ -22,12 +22,12 @@ $ =>
   initAddHere()
   initActionsContainer()
 
+
 @initItemForm = ->
   $(".cancel").click ->
     $(this).parents(".item-form, .edit-form").slideUp()
     $(this).parents(".item").find(".item-view-container").show()
-  $(".add_backend").click ->
-    $(this).parents(".item-form").find(".backend_textfield").show()
+  initAddBackend()
 
 
 
@@ -76,3 +76,11 @@ clearItemTimeout = (item) ->
     if(currentItem != $(this))
       clearItemTimeout($(this))
       $(this).find(".actions-container").hide()
+
+@initAddBackend = ->
+  $(".add-backend").click ->
+    $(this).hide()
+    $(".back-end-container").show()
+    $(".front-end-container").removeClass("span9").addClass("span6")
+    $(".front-end-container .control-label").show()
+    $(".front-end-container textarea").addClass("span11")
