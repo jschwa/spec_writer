@@ -131,13 +131,13 @@ ul {
         display: inline-block;
       }
     }
-    .insert-item-container {
-      .front-end-container{
+    .insert-item-container, .edit-form {
+      .front-end-container {
         position: relative;
-        .control-label{
+        .control-label {
           display: none;
         }
-        .add-backend{
+        .add-backend {
           position: absolute;
           right: 0;
           bottom: 115px;
