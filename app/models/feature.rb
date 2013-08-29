@@ -12,6 +12,10 @@ class Feature < ActiveRecord::Base
     self.front_end = DEFAULT_VALUE if front_end.blank?
   end
 
+  def back_end_empty?
+    back_end == DEFAULT_VALUE || back_end.empty?
+  end
+
   private
 
   def at_least_one_filed_defined

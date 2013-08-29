@@ -5,10 +5,11 @@
     .row-fluid
       = itemizable_f.input :title, input_html: {class: "span4"}
     .row-fluid
-      .span9.front-end-container
-        = itemizable_f.input :front_end, input_html: {class: "span10", rows: "10"}
-        = link_to "+ Backend", "#add_backend", class:"add-backend"
-      .span6.hide.back-end-container
+      .front-end-container{class: @item.itemizable.back_end_empty? ? "span9" : "span6"}
+        = itemizable_f.input :front_end, input_html: {class: @item.itemizable.back_end_empty? ? "span10" : "span11", rows: "10"}
+        = link_to "+ Backend", "#add_backend", class:"add-backend #{@item.itemizable.back_end_empty? ? "" : "hide"}"
+
+      .span6.back-end-container{class: @item.itemizable.back_end_empty? ? "hide" : "" }
         = itemizable_f.input :back_end, input_html: {class: "span11", rows: "10"}
     .row-fluid
       .span4
