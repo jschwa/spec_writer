@@ -4,7 +4,7 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "SpecWriter"
+    %title= content_for?(:title) ? yield(:title) : "SPEC.PM"
     = csrf_meta_tags
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
@@ -19,17 +19,14 @@
 
   %body
     .navbar.navbar-fluid-top
-      .navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{href: root_url} SpecWriter
-          .nav-collapse.collapse.navbar-responsive-collapse
-            %ul.nav.pull-right
-              - if current_user
-                %li= link_to "Logout", destroy_user_session_path, method: :delete
+      .navbar-inverse
+        .navbar-inner
+          .container-fluid
+            %a.brand{href: root_url} spec.pm
+            .nav-collapse.collapse.navbar-responsive-collapse
+              %ul.nav.pull-right
+                - if current_user
+                  %li= link_to "Logout", destroy_user_session_path, method: :delete
     .container-fluid
       = yield
       %footer

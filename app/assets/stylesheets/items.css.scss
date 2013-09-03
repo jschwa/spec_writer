@@ -1,30 +1,18 @@
 @import "twitter/bootstrap/variables";
 @import "twitter/bootstrap/mixins";
 
-li {
-  line-height: 140%;
+.navbar{
+  margin-bottom: 0px;
 }
 
-body {
-  font-size: 14px;
-  font-family: lucida grande, verdana, sans-serif;;
+.container-fluid{
+  padding: 0;
 }
 
-p {
-  margin-top: 4px;
-}
-
-h3 {
-  font-size: 20px;
-  line-height: 20px;
-  padding-top: 10px;
-}
-
-h2 {
-  font-size: 25px;
-  line-height: 0px;
-  padding-top: 15px;
-  padding-bottom: 8px;
+.icon-move{
+  background-position: -163px -68px;
+  width: 18px;
+  height: 18px;
 }
 
 .hide {
@@ -75,14 +63,13 @@ ul {
 }
 
 .spec_page {
-  background: #E5E5E5;
+  background: #2C3E50;
 }
 
 .spec-content {
   width: 70%;
   margin: auto;
-  background-color: white;
-  box-shadow: 5px 5px 6px #888888;
+  background-color: #344953;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
@@ -90,17 +77,18 @@ ul {
 
 .blue-band {
   position: relative;
-  background: #edf3fe;
+  background: #21303F;
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 5px;
+  padding-right: 5px;
   margin-bottom: 10px;
   .cancel-item-container {
     color: red;
     margin-right: 55px;
     position: absolute;
-    background: #edf3fe;
+    background: #21303F;
     width: 99px;
     height: 30px;
     left: -105px;
@@ -118,8 +106,8 @@ ul {
       position: absolute;
       left: -102px;
       display: none;
-      background: white;
-      width: 92px;
+      background: #344953;
+      width: 111px;
       padding: 5px 10px;
       z-index: 100;
       cursor: pointer;
@@ -199,7 +187,7 @@ ul {
 
 .feature-item {
   padding-top: 0px;
-  margin-top: 18px;
+  margin-top: 35px;
   /* background-color: #FCFCFC; */
   margin-right: -10px;
   padding-right: 10px;
@@ -208,6 +196,9 @@ ul {
   /*box-shadow: 2px 2px 5px #888888; */
   .actions-container {
     top: 19px;
+  }
+  .title{
+    margin-left: -20px;
   }
 }
 
@@ -221,7 +212,8 @@ ul {
   position: relative;
   .divider-line {
     position: relative;
-    border-bottom: 1px solid black;
+    border-bottom: 1px;
+    border-bottom-color:#95A5A6;
     width: 100%;
     height: 1px;
     z-index: 1;
@@ -231,7 +223,7 @@ ul {
   .title {
     z-index: 2;
     display: inline-block;
-    background: white;
+    background: #344953;
     position: relative;
     margin: 0;
     padding: 0 10px;
