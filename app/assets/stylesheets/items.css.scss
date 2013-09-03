@@ -84,6 +84,7 @@ ul {
   padding-left: 5px;
   padding-right: 5px;
   margin-bottom: 10px;
+  top: 23px;
   .cancel-item-container {
     color: red;
     margin-right: 55px;
@@ -101,13 +102,14 @@ ul {
 
 .item {
   position: relative;
+  margin-top: 35px;
   .item-wrapper {
     .actions-container {
       position: absolute;
-      left: -102px;
+      left: -112px;
       display: none;
       background: #344953;
-      width: 111px;
+      width: 119px;
       padding: 5px 10px;
       z-index: 100;
       cursor: pointer;
@@ -122,8 +124,10 @@ ul {
     .insert-item-container, .edit-form {
       .front-end-container {
         position: relative;
-        .control-label {
-          display: none;
+        &.back-end-empty{
+          .control-label {
+            display: none;
+          }
         }
         .add-backend {
           position: absolute;
@@ -143,7 +147,7 @@ ul {
       width: 200px;
       height: 20px;
       left: -100px;
-      top: -8px;
+      top: 8px;
       z-index: 100;
       .prompt {
         background: black;
@@ -187,7 +191,6 @@ ul {
 
 .feature-item {
   padding-top: 0px;
-  margin-top: 35px;
   /* background-color: #FCFCFC; */
   margin-right: -10px;
   padding-right: 10px;
@@ -195,7 +198,7 @@ ul {
   padding-left: 50px;
   /*box-shadow: 2px 2px 5px #888888; */
   .actions-container {
-    top: 19px;
+    top: 8px;
   }
   .title{
     margin-left: -20px;
@@ -203,8 +206,9 @@ ul {
 }
 
 .divider-item {
-  .actions-container {
+  .item-wrapper .actions-container {
     top: 4px;
+    left: -161px;
   }
 }
 
@@ -212,13 +216,14 @@ ul {
   position: relative;
   .divider-line {
     position: relative;
-    border-bottom: 1px;
+    border-bottom: 1px solid;
     border-bottom-color:#95A5A6;
     width: 100%;
     height: 1px;
     z-index: 1;
     bottom: 20px;
     left: -50px;
+    padding-right: 60px;
   }
   .title {
     z-index: 2;
@@ -227,6 +232,10 @@ ul {
     position: relative;
     margin: 0;
     padding: 0 10px;
-    left: -10px;
+    left: -30px;
   }
+}
+
+input, textarea{
+  @extend .palette-clouds;
 }

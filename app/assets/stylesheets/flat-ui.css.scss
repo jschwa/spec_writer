@@ -431,6 +431,7 @@ a {
   -o-transition: 0.25s;
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
+  margin-right: 5px;
 }
 a:hover {
   color: #1abc9c;
@@ -1221,6 +1222,7 @@ input[type="color"],
 .uneditable-input {
   border: 2px solid #bdc3c7;
   color: #34495e;
+  background-color: #BDC3C7;
   font-family: "Lato", sans-serif;
   font-size: 14px;
   padding: 8px 5px;
@@ -1347,7 +1349,6 @@ input[type="color"]:focus,
 .row-fluid input[type="color"],
 .row-fluid .uneditable-input {
   height: 41px;
-  width: 100%;
 }
 textarea.flat,
 input[type="text"].flat,
@@ -1665,10 +1666,8 @@ textarea {
 }
 .row-fluid textarea {
   height: auto;
-  width: 100% !important;
 }
 textarea[class*="span"] {
-  width: 100% !important;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
