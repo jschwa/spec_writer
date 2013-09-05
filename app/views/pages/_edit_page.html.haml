@@ -1,0 +1,4 @@
+= semantic_form_for @page, remote: true do |f|
+  = f.input :name
+  = f.action :submit
+  = link_to "Cancel", page_cancel_edit_path(@page), class: "cancel", remote: true

@@ -24,5 +24,24 @@ class PagesController < ApplicationController
     render nothing: true
   end
 
+  def edit
+    @page = Page.find(params[:id])
+  end
+
+  def update
+    @page = Page.find(params[:id])
+    @page.update_attributes(params[:page])
+  end
+
+  def destroy
+    @page = Page.find(params[:id])
+    @page.destroy
+    redirect_to pages_path
+  end
+
+  def cancel_edit
+    @page = Page.find(params[:page_id])
+  end
+
 
 end

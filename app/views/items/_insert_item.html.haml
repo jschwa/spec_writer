@@ -1,7 +1,7 @@
 .insert-item-container{data: {position: position}}
   .row-fluid.blue-band
     - if show_cancel
-      = link_to "Cancel", "#", class: "cancel-item-container"
+      = link_to "Cancel", "#cancel", class: "cancel-item-container"
     %span{ :style => "margin-right: 10px;"} Add here:
     = link_to "Add feature", page_item_form_path(@page, item_type: "Feature", item_position: position), class: "add-feature-link", remote: true
     = link_to "Add divider", page_item_form_path(@page, item_type: "Divider", item_position: position), class: "add-divider-link", remote: true

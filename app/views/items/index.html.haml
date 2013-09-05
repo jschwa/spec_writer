@@ -1,8 +1,17 @@
 .spec_page
   .spec-content
+    .pull-right
+      = semantic_form_for @page, url: page_toggle_public_path(@page), remote: true do |f|
+        = f.input :public, as: :boolean
+        .public-url-container
+          - if @page.public?
+            = link_to(page_public_url(@page), page_public_url(@page))
+
+      = link_to "Sync With Pivotal Tracker", page_sync_with_pt_path(@page), class: "btn btn-primary", remote: true
+      .project-select-container
     .row-fluid
-      %h1
-        = @page.name
+      .page-name.actions-container-parent
+        = render partial: "page_name"
 
     .row-fluid.page-content
       = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
@@ -13,11 +22,3 @@
       %ul.item-list
         - @list_items.each do |single_item|
           = render partial: "item", locals: {item: single_item}
-    = semantic_form_for @page, url: page_toggle_public_path(@page), remote: true do |f|
-      = f.input :public, as: :boolean
-      .public-url-container
-        - if @page.public?
-          = link_to(page_public_url(@page), page_public_url(@page))
-
-    = link_to "Sync With Pivotal Tracker", page_sync_with_pt_path(@page), class: "btn btn-primary", remote: true
-    .project-select-container

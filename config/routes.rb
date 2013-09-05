@@ -22,6 +22,7 @@ SpecWriter::Application.routes.draw do
     put "/toggle_public" => "items#toggle_public"
     put "/sync_with_pt" => "items#sync_with_pt"
     resources :items
+    get "/cancel_edit"  => "pages#cancel_edit"
   end
   root :to => 'pages#index'
 

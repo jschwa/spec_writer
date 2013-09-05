@@ -100,27 +100,36 @@ ul {
   }
 }
 
+.page-name {
+  position: relative;
+  .actions-container{
+    top: 4px;
+    left: -141px;
+  }
+}
+
+.actions-container {
+  position: absolute;
+  left: -112px;
+  display: none;
+  background: #344953;
+  width: 119px;
+  padding: 5px 10px;
+  z-index: 100;
+  cursor: pointer;
+  .icon-move {
+    cursor: move;
+  }
+  @include border-radius(15px);
+  i {
+    display: inline-block;
+  }
+}
+
 .item {
   position: relative;
   margin-top: 35px;
   .item-wrapper {
-    .actions-container {
-      position: absolute;
-      left: -112px;
-      display: none;
-      background: #344953;
-      width: 119px;
-      padding: 5px 10px;
-      z-index: 100;
-      cursor: pointer;
-      .icon-move {
-        cursor: move;
-      }
-      @include border-radius(15px);
-      i {
-        display: inline-block;
-      }
-    }
     .insert-item-container, .edit-form {
       .front-end-container {
         position: relative;

@@ -55,24 +55,23 @@ $ =>
     $(this).parents(".item").removeClass("blue-band-visible")
 
 @initActionsContainer = ->
-  $(".item").mouseenter ->
+  $(".actions-container-parent").mouseenter ->
     clearItemTimeout($(this))
     hideAllActionContainers($(this))
     $(this).find(".actions-container").show()
-  $(".item").mouseleave ->
+  $(".actions-container-parent").mouseleave ->
     actionsContainer = $(this).find(".actions-container")
     timeout = setTimeout(->
       actionsContainer.fadeOut()
     , 1000)
     $(this).data("actionsContainerTimeout", timeout)
 
-
-clearItemTimeout = (item) ->
-  if item.data("actionsContainerTimeout")
-    clearTimeout(item.data("actionsContainerTimeout"))
+clearItemTimeout = (element) ->
+  if element.data("actionsContainerTimeout")
+    clearTimeout(element.data("actionsContainerTimeout"))
 
 @hideAllActionContainers = (currentItem) ->
-  $(".item").each ->
+  $(".actions-container-parent").each ->
     if(currentItem != $(this))
       clearItemTimeout($(this))
       $(this).find(".actions-container").hide()

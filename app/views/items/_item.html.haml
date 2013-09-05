@@ -1,4 +1,4 @@
-%li.item{data: {position: item.position}, class: "#{item.itemizable_type.downcase}-item"}
+%li.item.actions-container-parent{data: {position: item.position}, class: "#{item.itemizable_type.downcase}-item"}
   .item-wrapper
     .item-view-container
       = render(partial: item.itemizable_type.downcase, locals: {item.itemizable_type.downcase.to_sym => item.itemizable})
