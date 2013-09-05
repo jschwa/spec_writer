@@ -69,6 +69,7 @@ ul {
 .spec-content {
   width: 70%;
   margin: auto;
+  position: relative;
   background-color: #344953;
   padding-left: 30px;
   padding-right: 30px;
@@ -248,7 +249,20 @@ ul {
   }
 }
 
-
+.publish-container {
+  width: 310px;
+  margin-top: 10px;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  form {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .btn {
+    margin-left: 20px;
+  }
+}
 
 
 

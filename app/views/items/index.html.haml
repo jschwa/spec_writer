@@ -1,13 +1,12 @@
 .spec_page
   .spec-content
-    .pull-right
+    .publish-container
       = semantic_form_for @page, url: page_toggle_public_path(@page), remote: true do |f|
-        = f.input :public, as: :boolean
-        .public-url-container
-          - if @page.public?
-            = link_to(page_public_url(@page), page_public_url(@page))
-
+        = f.input :public, as: :boolean, input_html: {data: {toggle: "checkbox"}}
       = link_to "Sync With Pivotal Tracker", page_sync_with_pt_path(@page), class: "btn btn-primary", remote: true
+      .public-url-container
+        - if @page.public?
+          = link_to(page_public_url(@page), page_public_url(@page))
       .project-select-container
     .row-fluid
       .page-name.actions-container-parent
