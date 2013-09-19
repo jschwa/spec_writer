@@ -17,7 +17,6 @@ class Item < ActiveRecord::Base
 
   def build_itemizable(params, assignment_options)
     raise "Unknown client_type: #{itemizable_type}" unless ITEMIZABLE_TYPES.include?(itemizable_type)
-    some
     self.itemizable = itemizable_type.constantize.new(params)
   end
 
