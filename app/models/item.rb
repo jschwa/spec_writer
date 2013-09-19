@@ -15,13 +15,10 @@ class Item < ActiveRecord::Base
     itemizable.set_default_values
   end
 
-  protected
-
   def build_itemizable(params, assignment_options)
     raise "Unknown client_type: #{itemizable_type}" unless ITEMIZABLE_TYPES.include?(itemizable_type)
+    some
     self.itemizable = itemizable_type.constantize.new(params)
   end
-
-
 
 end
