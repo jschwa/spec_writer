@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20130926133826) do
 
   create_table "pt_infos", :force => true do |t|
     t.string   "api_key"
-    t.string   "project_name"
+    t.text     "pt_json"
     t.boolean  "separate_front_end_from_back_end", :default => false
     t.integer  "page_id"
     t.datetime "created_at",                                          :null => false

@@ -1,6 +1,6 @@
 = semantic_form_for(@page.pt_info, url: page_sync_with_pt_project_selection_path(@page), remote: true, method: :post) do |f|
   .modal-body
-    = f.input :project_name
+    = f.input :pt_json, as: :select, collection: projects_select_options
     = f.input :separate_front_end_from_back_end, as: :boolean, input_html: {data: {toggle: "checkbox"}}
   .modal-footer
     = f.submit "Next", class: "btn btn-primary"
