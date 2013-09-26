@@ -1,9 +1,14 @@
 class Page < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :pt_info_attributes
 
   validates_presence_of :name
 
   has_many :items, order: "position desc", dependent: :destroy
+  has_one :pt_info
+
+  after_initialize :init_pt_info
+
+  accepts_nested_attributes_for :pt_info
 
   def reorder_items new_order
     items.each do |a_item|
@@ -53,5 +58,10 @@ class Page < ActiveRecord::Base
     item.position == items.count - 1
   end
 
+  private
+
+  def init_pt_info
+    build_pt_info if pt_info.nil?
+  end
 
 end

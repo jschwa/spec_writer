@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603140209) do
+ActiveRecord::Schema.define(:version => 20130926133826) do
 
   create_table "dividers", :force => true do |t|
     t.string   "title"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(:version => 20130603140209) do
     t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
     t.boolean  "public",     :default => false
+  end
+
+  create_table "pt_infos", :force => true do |t|
+    t.string   "api_key"
+    t.string   "project_name"
+    t.boolean  "separate_front_end_from_back_end", :default => false
+    t.integer  "page_id"
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
   end
 
   create_table "users", :force => true do |t|
