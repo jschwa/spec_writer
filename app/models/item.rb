@@ -20,4 +20,8 @@ class Item < ActiveRecord::Base
     self.itemizable = itemizable_type.constantize.new(params)
   end
 
+  def feature?
+    itemizable_type == "Feature"
+  end
+
 end
