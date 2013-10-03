@@ -1,0 +1,5 @@
+- flash_alert_levels.each do |level|
+  - unless flash[level].blank?
+    .alert.alert-block{class: flash_class(level)}
+      = link_to("×", "#", class: "close", "data-dismiss" => "alert")
+      = flash_alert_message(level)
