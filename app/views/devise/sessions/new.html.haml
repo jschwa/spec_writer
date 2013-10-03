@@ -1,0 +1,21 @@
+.container
+  .login
+    .login-screen
+      .login-icon
+        = image_tag "icon.png"
+        %h1
+          Sign In
+      .login-form
+        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          .form-group
+            = f.email_field :email, :autofocus => true, :placeholder  => "Email", :class => "form-control login-field"
+            %label.login-field-icon.fui-mail{for: "user_email]"}
+          .form-group
+            = f.password_field :password, :placeholder => "Password", :class => "form-control login-field"
+            %label.login-field-icon.fui-lock{for: "user_password"}
+          - if devise_mapping.rememberable?
+            %label.checkbox{for: "user_remember_me"}
+              = f.check_box :remember_me
+              = f.label :remember_me
+          %div= f.submit "Sign in", :class => "btn btn-primary btn-lg btn-block"
+        = render "devise/shared/links"
