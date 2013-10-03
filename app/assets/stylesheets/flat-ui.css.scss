@@ -4138,6 +4138,11 @@ body.vjs-full-window {
   padding: 123px 199px 33px 306px;
 }
 
+error-messages{
+  color: #C0392B;
+  padding-bottom: 10px;
+}
+
 .login-icon {
   left: 122px;
   position: absolute;
@@ -4169,6 +4174,10 @@ body.vjs-full-window {
 .login-icon > h1 {
   color: #BDC3C7;
   font-size: 60px;
+    .sign-up{
+      margin-left: -10px;
+      width: 210px;
+    }
 }
 
 .login-form {
