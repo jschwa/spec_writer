@@ -40,4 +40,7 @@ SpecWriter::Application.configure do
 
   # Precompile additional assets
   config.assets.precompile += %w( .svg .eot .woff .ttf )
+
+  #handles mailing password reset.  Needs to be changed to spec-writer.heroku.com on produciton
+  config.action_mailer.default_url_options = { :host => 'localhost' }
 end

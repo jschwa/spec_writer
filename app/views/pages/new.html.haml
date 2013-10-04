@@ -1,5 +1,13 @@
-%h1 Create new spec
-
-= semantic_form_for @page do |f|
-  = f.input :name
-  = f.action :submit
+.container
+  .login
+    .login-screen
+      .login-icon
+        = image_tag "icon.png"
+        %h1
+          Create a new spec
+      .login-form
+        = semantic_form_for @page do |f|
+          .form-group
+            = f.input :name, :label => false, :placeholder  => "Spec Name", :input_html => { :class => "form-control login-field"}
+            %label.login-field-icon.fui-new{for: "page_name"}
+          = f.action :submit, :label => "Create Spec", :button_html => { :class => "btn btn-primary btn-lg btn-block" }
