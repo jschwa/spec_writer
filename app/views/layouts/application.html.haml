@@ -17,12 +17,12 @@
       .navbar-inverse
         .navbar-inner
           .container-fluid
-            %a.brand{href: root_url} spec.pm
+            %a.brand{href: pages_url} spec.pm
             .nav-collapse.collapse.navbar-responsive-collapse
               %ul.nav.pull-right
                 - if current_user
                   %li= link_to "Logout", destroy_user_session_path, method: :delete
-    .container-fluid
-      = yield
-      %footer
-        %p &copy; Jason Schwartz 2013
+      .container-fluid
+        = yield
+  %footer
+    %p &copy; Jason Schwartz 2013
