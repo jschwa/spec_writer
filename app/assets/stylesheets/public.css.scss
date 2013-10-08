@@ -2,82 +2,83 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.demo-logo {
-  color: #BDC3C7;
-  .logo {
-    background: url(icon.png) center 0 no-repeat;
-    background-size: 261px 113px;
-    height: 114px;
-  }
-}
-
-.demo-headline{
-  padding-right: 17%;
-  padding-left: 17%;
-  padding-bottom: 0px;
-
-}
-
-.demo-logo small {
-  color: #999999;
-}
-
 .public-wrapper {
+
   background-color: #2C3E50;
   color: #2C3E50;
-}
 
-.btn.btn-start-spec {
-  background-color: #16A085;
-}
+  .demo-logo {
+    color: #BDC3C7;
+    .logo {
+      background: url(icon.png) center 0 no-repeat;
+      background-size: 261px 113px;
+      height: 114px;
+    }
+  }
 
-.how-it-works {
-  background-color: #16A085;
-}
+  .demo-headline {
+    padding-right: 17%;
+    padding-left: 17%;
+    padding-bottom: 0px;
 
-footer a {
-  color: #16A085;
-}
+  }
 
-.imac {
-  background: url(imac.png) 0 0 no-repeat;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  margin-right: 17%;
-  margin-left: 17%;
-  background-size: 940px 778px;
-  color: #BDC3C7;
-  padding: 38px 38px 300px;
-  position: relative;
-}
+  .demo-logo small {
+    color: #999999;
+  }
 
-.imac-screen{
-  margin-right: 17%;
-  margin-left: 17%;
-  min-height: 317px;
-  padding: 123px 199px 33px 306px;
-}
+  .btn.btn-start-spec {
+    background-color: #16A085;
+  }
 
-.imac-screen >img {
-}
+  .how-it-works {
+    background-color: #16A085;
+  }
 
-.public-content {
-  width: 100%;
-}
+  footer a {
+    color: #16A085;
+  }
 
-.how-it-works {
-  background-color: #7F8C8D;
-  padding-right: 17%;
-  padding-left: 17%;
-}
+  .imac {
+    background: url(imac.png) 0 0 no-repeat;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    margin-right: 17%;
+    margin-left: 17%;
+    background-size: 940px 778px;
+    color: #BDC3C7;
+    padding: 38px 38px 300px;
+    position: relative;
+  }
 
-footer {
-  padding-right: 17%;
-  padding-left: 17%;
-}
+  .imac-screen {
+    margin-right: 17%;
+    margin-left: 17%;
+    min-height: 317px;
+    padding: 123px 199px 33px 306px;
+  }
 
-.button {
-  padding-left: 37%;
-  padding-right: 37%;
-  padding-top: 2%;
+  .imac-screen >img {
+  }
+
+  .public-content {
+    width: 100%;
+  }
+
+  .how-it-works {
+    background-color: #7F8C8D;
+    padding-right: 17%;
+    padding-left: 17%;
+  }
+
+  footer {
+    padding-right: 17%;
+    padding-left: 17%;
+  }
+
+  .button {
+    padding-left: 37%;
+    padding-right: 37%;
+    padding-top: 2%;
+  }
 }
