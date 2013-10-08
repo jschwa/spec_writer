@@ -5,7 +5,6 @@ class PtController < ApplicationController
   def submit_auth
     update_pt_info
     @projects_list = pt_client.projects_list
-    @projects_list
   end
 
   def submit_project_selection
