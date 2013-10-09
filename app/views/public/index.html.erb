@@ -1,63 +1,89 @@
-<div class="public-wrapper">
-  <div class="demo-headline">
-    <h1 class="demo-logo">
-      <div class="logo">
+<div class="public-wrapper" xmlns="http://www.w3.org/1999/html">
+  <div class="container">
+    <div class="demo-headline">
+      <h1 class="demo-logo">
+        <div class="logo">
+        </div>
+        SPEC.PM
+        <small>A Simple Spec Writer for Product Managers</small>
+      </h1>
+      <div class="button">
+        <%= link_to "Start A Spec", pages_path, class: "btn btn-large btn-block btn-start-spec" %>
       </div>
-      SPEC.PM
-      <small>A Simple Spec Writer for Product Managers</small>
-    </h1>
-    <div class="button">
-      <a href="/pages" class="btn btn-large btn-block btn-start-spec">Start A Spec</a>
     </div>
-  </div>
 
-  <!-- /demo-headline -->
+    <!-- /demo-headline -->
 
 
-  <div class="imac">
-    <div class="imac-screen">
-      <%= image_tag "spec_writer_screenshot.png" %>
-    </div>
+    <div class="imac"></div>
   </div>
 
 
   <div class="how-it-works">
     <div class="container">
-      <h1>How To Write A Spec</h1>
+      <h2>What is it?</h2>
 
-      <p>A spec is made up of features</p>
-      <img src="images/screenshots/SpecWriter.jpg" alt="spec.pm feature">
+      <p>Spec.pm is a tool for writing product requirements. It’s a structured wiki that is specifically designed for
+        product and development teams.  It syncs with Pivotal Tracker so you don't have to manually break your spec into tickets. </p>
 
-      <h2>Adding a feature</h2>
+      <p>It's used to communicate a complex feature to a development team.  A collection of user stories that make up a complex feature is called an epic.
+        Spec.pm is for writing the user stories that make up an epic. Learn more about how to write a spec.
+      </p>
 
-      <p>When you add a feature, it's pre-populated with three sections. User Story, Logic, and Acceptance Criteria.
+      <h2>Why would I use it?</h2>
+
+      <dt>Epics are best understood when read in a single document</dt>
+
+      <dd>It is very difficult for a development team to understand an epic when the underlying stories have already
+        been broken into tickets. It's much easier to understand how all the parts fit together when read in a single
+        Spec.pm document.
+      </dd>
+      <br>
+      <dt>Front and backend stories are best understood when side-by-side</dt>
+      <dd>If developers are not full stack, it's hard for the backend developer to understand exactly what the frontend
+        developer needs. Side-by-side stories solves this.
+      </dd>
+      <br>
+      <dt>Order stories for comprehension, not development priority.</dt>
+      <dd>Stories are usually prioritized in the order that developers should work on them. This is generally not the
+        best order for explaining how a feature works. Use Spec.pm to tell your development team a narrative on how
+        the feature will work.
+      </dd>
+      <br>
+
+      <dt>A spec doubles as documentation.</dt>
+
+      <dd> Looking back at a spec is a great way to remember how software was built. It helps new developers get up to
+        speed, and it helps existing developers remember the decisions that were made in the past.
+      </dd>
+      </dl>
+
+      <h2>How does it work?</h2>
+
+      <p>A spec is made up of stories</p>
+      <%= image_tag "story_list.png" %>
+
+      <h2>Adding a story</h2>
+
+      <p>When you add a story, it's pre-populated with three sections. User Story, Logic, and Acceptance Criteria.
         Learn more about what to put in these sections.</p>
-      <img src="images/screenshots/feature.jpg" alt="spec.pm feature">
+      <%= image_tag "add_story.png" %>
 
       <h2>Splitting Frontend & Backend</h2>
 
-      <p>To split your feature into Frontend and Backend, click the + Backend link. This is useful when you have
-        separate frontend and backend developers, especially when doing mobile development. Even if you have full
-        stack developers, there are many benefits to writing specs in this format. Learn more about that here.</p>
-      <img src="images/screenshots/fandb.jpg" alt="spec.pm frontend and backend">
+      <p>Spliting the front end backend is useful when the development team isn't full stack.  This is especially true when doing mobile development.</p>
+      <%= image_tag "front_back.png" %>
 
       <h2>Rearranging</h2>
 
-      <p>You can drag and drop features around the page. A spec is like a story you are telling your developer. Order
-        your features in a way that allows someone to fully grasp how all the features work together.</p>
-      <img src="images/screenshots/drag.jpg">
+      <p>You can drag and drop stories around the page. A spec is like a narrative you are telling the developers. Order
+        your stories in a way that allows them to fully grasp how all the stories work together.</p>
+      <%= image_tag "rearrange.png" %>
 
-      <h2>Insert Features</h2>
+      <h2>Sync With Pivotal Tracker</h2>
 
-      <p>You can insert a new feature anywhere in the spec by hovering over the place where you want it to appear.</p>
-      <img src="images/screenshots/insert.jpg">
-
-      <h2>Dividers</h2>
-
-      <p>A features should be small. A developer should be able to easily complete it in a day or less. If one feature
-        is becoming very long, there is a good chance that it should be broken up into multiple features. Add
-        dividers to group related features together.</p>
-      <img src="images/screenshots/divider.jpg">
+      <p>When you sync, all stories are added to a Pivotal Tracker project.  Any change to a story in Pivotal Tracker automatically updates the story in Spec.pm, and vice versa. This keeps the spec up-to-date, increasing it's utility as documentation.</p>
+      <%= image_tag "sync.png" %>
 
     </div>
   </div>
@@ -69,11 +95,10 @@
       <p>This app is largely based on 37 Signals Backpack. A phenomenal product that was <a
       href="http://37signals.com/backpack-retired">recently shut down to new users.</a>
 
-        I use Backpack for all my spec writing, and I am worried that they will eventually shut down my account. I
-        need a replacement, so I built Spec.pm.<br><br>
+        I used Backpack for all my spec writing so I built Spec.pm to replace it. <br><br>
 
-        I also teach a class on Product Management, and built Spec.pm to be a teaching aide for new product managers
-        as well as a functional utility. I hope it helps you to get where you are trying to go.<br><br>
+        I also teach a class on Product Management.  I built Spec.pm as a teaching aide for new product managers
+        as well as a functional utility. I hope it helps to get you where you are trying to go.<br><br>
 
         Feedback is welcome. The <a href="https://github.com/jschwa/spec_writer">Github repo for this project is
         here</a> if you wish to make modifications.<br><br>
@@ -81,14 +106,12 @@
         <strong>Credits</strong><br>
         Framework: <a href="http://getbootstrap.com/2.3.2/">Bootstrap</a><br>
         UI Framework: <a href="http://designmodo.github.io/Flat-UI/">Flat UI</a><br><br>
-
-        By <a href="http://jschwa.com">Jason Schwartz</a>
       </p>
       <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img
       alt="Creative Commons License" style="border-width:0"
       src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"/></a><br/><span
-    xmlns:dct="http://purl.org/dc/terms/" property="dct:title">spec.pm</span> by <a
-    xmlns:cc="http://creativecommons.org/ns#" href="http://spec.pm" property="cc:attributionName"
+    xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Spec.pm</span> by <a
+    xmlns:cc="http://creativecommons.org/ns#" href="http://jschwa.com" property="cc:attributionName"
     rel="cc:attributionURL">Jason Schwartz</a> is licensed under a <a rel="license"
                                                                       href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative
       Commons Attribution-ShareAlike 3.0 Unported License</a>.

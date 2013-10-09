@@ -23,17 +23,23 @@ class PTClient
           create_story(page, item, :front_end) unless item.itemizable.front_end.blank?
           create_story(page, item, :back_end) unless item.itemizable.back_end.blank?
         else
-          create_story(page, item)
+          if item.pt_item_infos.empty?
+            create_story(page, item)
+          else
+            update_story(page, item)
+          end
         end
       end
     end
   end
 
+  private
+
   def create_story page, item, description_type = nil
     feature = item.itemizable
     story_params = {
-      project_id: page.pt_info.project_id,
-      story_type: "feature"
+        project_id: page.pt_info.project_id,
+        story_type: "feature"
     }
     story_params = story_params.merge(page.pt_info.separate_front_end_from_back_end? ? separate_story_params(page, feature, description_type) : single_story_params(page, feature))
     http = Curl.post(pt_url(STORIES_URL.gsub("{project_id}", story_params[:project_id].to_s)), story_params.to_json) do |http|
@@ -41,27 +47,41 @@ class PTClient
       http.headers['Content-Type'] = 'application/json'
       http.ssl_verify_peer = false
     end
-    http
+    item.add_pt_item_info(http.body_str)
   end
 
-  private
+  def update_story page, item, description_type = nil?
+    feature = item.itemizable
+    story_params = {
+        project_id: page.pt_info.project_id,
+        story_type: "feature",
+        story_id: item.pt_item_infos.first.story_id
+    }
+    story_params = story_params.merge(page.pt_info.separate_front_end_from_back_end? ? separate_story_params(page, feature, description_type) : single_story_params(page, feature))
+    http = Curl.put(pt_url(STORIES_URL.gsub("{project_id}", story_params[:project_id].to_s)+"/#{story_params[:story_id]}"), story_params.to_json) do |http|
+      http.headers['X-TrackerToken'] = @api_key
+      http.headers['Content-Type'] = 'application/json'
+      http.ssl_verify_peer = false
+    end
+    item.update_pt_item_info(http.body_str)
+  end
 
   def separate_story_params page, feature, description_type
     type_label = description_type.to_s.gsub("_", "")
     {
-      name: feature.title.blank? ? "Untitled #{feature.id} #{type_label}" : "#{feature.title} #{type_label}",
-      labels: [{name: page.name}, {name: type_label}],
-      description: feature.send(description_type)
+        name: feature.title.blank? ? "Untitled #{feature.id} #{type_label}" : "#{feature.title} #{type_label}",
+        labels: [{name: page.name}, {name: type_label}],
+        description: feature.send(description_type)
     }
   end
 
   def single_story_params page, feature
     {
-      name: feature.title.blank? ? "Untitled #{feature.id}" : feature.title,
-      labels: [{
-        name: page.name
-      }],
-      description: "
+        name: feature.title.blank? ? "Untitled #{feature.id}" : feature.title,
+        labels: [{
+                     name: page.name
+                 }],
+        description: "
        FRONTEND
  
        #{feature.front_end}
@@ -69,7 +89,7 @@ class PTClient
        BACKEND
  
        #{feature.back_end}
-      "
+        "
     }
   end
 

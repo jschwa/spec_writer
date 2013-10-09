@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926133826) do
+ActiveRecord::Schema.define(:version => 20131008142634) do
 
   create_table "dividers", :force => true do |t|
     t.string   "title"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(:version => 20130926133826) do
     t.integer  "page_id"
     t.datetime "created_at",                                          :null => false
     t.datetime "updated_at",                                          :null => false
+  end
+
+  create_table "pt_item_infos", :force => true do |t|
+    t.integer  "item_id"
+    t.text     "pt_json"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
