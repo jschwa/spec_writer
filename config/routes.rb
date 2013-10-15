@@ -14,4 +14,6 @@ SpecWriter::Application.routes.draw do
   end
   root :to => 'public#index'
 
+
+
 end

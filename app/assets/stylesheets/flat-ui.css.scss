@@ -211,6 +211,10 @@ you can use the generic selector below, but it's slower:
   clear: both;
 }
 
+.control-label{
+  color: #95A5A6;
+}
+
 .drop-ie-gradient {
   filter: unquote("progid:DXImageTransform.Microsoft.gradient(enabled = false)");
 }
@@ -1830,6 +1834,9 @@ input[type="color"].flat:focus,
 
 .control-group {
   position: relative;
+  .body{
+    color: #95A5A6
+  }
 }
 
 .control-group > .input-icon {

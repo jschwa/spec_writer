@@ -1,108 +1,66 @@
-<div class="public-wrapper" xmlns="http://www.w3.org/1999/html">
+
+<div class="public-wrapper"  xmlns="http://www.w3.org/1999/html">
   <div class="container">
     <div class="demo-headline">
       <h1 class="demo-logo">
-        <div class="logo">
-        </div>
-        SPEC.PM
-        <small>A Simple Spec Writer for Product Managers</small>
-      </h1>
-      <div class="button">
-        <%= link_to "Start A Spec", pages_path, class: "btn btn-large btn-block btn-start-spec" %>
+      How To Write A Spec</h1>
+      <div class="demo-p">
+  <p>When we say spec, we are referring to a collection of user stories written in document format.  To use this tool properly it&rsquo;s important to understand a few core concepts of agile project management.</p>
+      </div>
       </div>
     </div>
-
-    <!-- /demo-headline -->
-
-
-    <div class="imac"></div>
-  </div>
-
-
-  <div class="how-it-works">
+<div class="how-it-works">
     <div class="container">
-      <h2>What is it?</h2>
 
-      <p>Spec.pm is a tool for writing product requirements. It’s a structured wiki that is specifically designed for
-        product and development teams.  It syncs with Pivotal Tracker so you don't have to manually break your spec into tickets. </p>
+      <h2>User Stories</h2>
+        <p>A user story is a way of communicating a singular piece of functionality to a developer.</p>
+      <p>They take this form:
+        <pre>As a {user type} I want to {desired action} so that {benefit}</pre>
 
-      <p>It's used to communicate a complex feature to a development team.  A collection of user stories that make up a complex feature is called an epic.
-        Spec.pm is for writing the user stories that make up an epic. Learn more about how to write a spec.
-      </p>
+      <p>For example, you might write:</p>
+      <pre>As a user I want to register so that I can save my progress.
+      <p>As an admin I want to see how many users registered this week so that I can see if the site is growing.</pre>
+      <p><strong>{User Type} - </strong> Describe the type of user who wants to take the action.  This can be a new visitor, existing user, admin, or business owner.</p>
+      <p><strong>{Desired Action} -</strong> Describe what that user wants to do. </p>
+      <p><strong>{Benefit} -</strong> What is the value of this feature to the user?</p>
+      <h2>Why are user stories useful?</h2>
+      <p>You might have found yourself in a situation where you have speced something out in detail only to have a developer produce functionality that doesn&rsquo;t make logical sense.</p>
+      <p>What happened is that the developer didn&rsquo;t understand the end goal.  Instead they were trying to follow instructions, but they came to a few critical points where they had to make a decision on their own.  Something was left out of the spec, which it almost always is, and they had to make a call on what to do.  They made a poor decision because they didn&rsquo;t understand the end goal.</p>
+      <p>A user story helps a developer to understand the end goal instead of the steps they need to take to get there. </p>
 
-      <h2>Why would I use it?</h2>
+      <h2>Epics</h2>
+      <p>Sometimes you can cover a piece of functionality easily in a user story.  As a user I want to be able to sort the list by last added so that I can see the most recent additions. </p>
+      <p>In other scenarios it will take multiple user stories to cover all the functionality necessary.  This is often the case when you are adding a major new feature or building something from scratch.</p>
+      <p>When a collection of user stories is necessary to fully describe a feature, we call that an Epic. </p>
+      <p>Spec.pm is for writing the stories that make up an Epic.</p>
 
-      <dt>Epics are best understood when read in a single document</dt>
-
-      <dd>It is very difficult for a development team to understand an epic when the underlying stories have already
-        been broken into tickets. It's much easier to understand how all the parts fit together when read in a single
-        Spec.pm document.
-      </dd>
+      <h2>What should I include in my stories?</h2>
+      <p>In Spec.PM, a story is prepopulated with three sections.  User story, logic, and acceptance criteria. </p>
       <br>
-      <dt>Front and backend stories are best understood when side-by-side</dt>
-      <dd>If developers are not full stack, it's hard for the backend developer to understand exactly what the frontend
-        developer needs. Side-by-side stories solves this.
-      </dd>
+      <p><strong>User Story:</strong> Learn about user stories here.</p>
       <br>
-      <dt>Order stories for comprehension, not development priority.</dt>
-      <dd>Stories are usually prioritized in the order that developers should work on them. This is generally not the
-        best order for explaining how a feature works. Use Spec.pm to tell your development team a narrative on how
-        the feature will work.
-      </dd>
-      <br>
-
-      <dt>A spec doubles as documentation.</dt>
-
-      <dd> Looking back at a spec is a great way to remember how software was built. It helps new developers get up to
-        speed, and it helps existing developers remember the decisions that were made in the past.
-      </dd>
-      </dl>
-
-      <h2>How does it work?</h2>
-
-      <p>A spec is made up of stories</p>
-      <%= image_tag "story_list.png" %>
-
-      <h2>Adding a story</h2>
-
-      <p>When you add a story, it's pre-populated with three sections. User Story, Logic, and Acceptance Criteria.
-        Learn more about what to put in these sections.</p>
-      <%= image_tag "add_story.png" %>
-
-      <h2>Splitting Frontend & Backend</h2>
-
-      <p>Spliting the front end backend is useful when the development team isn't full stack.  This is especially true when doing mobile development.</p>
-      <%= image_tag "front_back.png" %>
-
-      <h2>Rearranging</h2>
-
-      <p>You can drag and drop stories around the page. A spec is like a narrative you are telling the developers. Order
-        your stories in a way that allows them to fully grasp how all the stories work together.</p>
-      <%= image_tag "rearrange.png" %>
-
-      <h2>Sync With Pivotal Tracker</h2>
-
-      <p>When you sync, all stories are added to a Pivotal Tracker project.  Any change to a story in Pivotal Tracker automatically updates the story in Spec.pm, and vice versa. This keeps the spec up-to-date, increasing it's utility as documentation.</p>
-      <%= image_tag "sync.png" %>
+      <p><strong>Logic:</strong>  This is where you capture the details of how the story should be implemented.  </p>
+      <p>The story might say, As a user I want to register so that I can save my progress.</p>
+      <p>What happens if the user registers with an email that is already in use, or a password that is too short, or users an email that is invalid?  Do you need to collect any demographic information from the user?  Where is the user taken after they register?  Is a welcome email sent? All of these details should be included in the logic section.</p>
+      <p>I prefer to think through these edge cases from the start.</p>
+      <p>Some teams prefer to just write the user story, which is thought of as an invitation to have a conversation.  When the developer is ready to implement the feature, they speak with the product manager and fill in the details together.</p>
+      <p>There will be some developers that do not like a high level of specificity in this section.  There are some teams that do not include this section at all.  These developers would prefer to just talk about how it will work, and maybe do some of the product work on their own. They don&rsquo;t want the product manager over prescribing.   This is something you will have to feel out on your own.  I&rsquo;ve had plenty of developers ignore this section of my specs.  In this situation I find it helpful to say,  &ldquo;I am writing down the details for myself.  There are a lot of small decisions that go into each feature, and writing them down helps me keep track.&rdquo;<br />
+       <br>
+        <strong>Acceptance Criteria:</strong>  This is where you write out step-by-step instructions on how you plan on testing the story once it&rsquo;s delivered.  The acceptance criteria for the user registration story might be:</p>
+   <pre>
+     Register a user
+     Confirm that the user is brought to the homepage
+     Logout
+     Log in
+     Register a user with a poorly formed email, a short password, and a missing name
+     Confirm that the proper validation errors display</pre>
+      <p>Think about what you are going to do to test a story once it&rsquo;s delivered. Then write those steps in plain English. If a developer goes through each steps before delivering the story, they will know whether they implemented it properly.  </p>
 
     </div>
   </div>
 
   <footer>
     <div class="container">
-      <h2>About SPEC.PM</h2>
-
-      <p>This app is largely based on 37 Signals Backpack. A phenomenal product that was <a
-      href="http://37signals.com/backpack-retired">recently shut down to new users.</a>
-
-        I used Backpack for all my spec writing so I built Spec.pm to replace it. <br><br>
-
-        I also teach a class on Product Management,  I built Spec.pm as a teaching aide for new product managers
-        as well as a functional utility. I hope it helps to get you where you are trying to go.<br><br>
-
-        Feedback is welcome. The <a href="https://github.com/jschwa/spec_writer">Github repo for this project is
-        here</a> if you wish to make modifications.<br><br>
-
         <strong>Credits</strong><br>
         Framework: <a href="http://getbootstrap.com/2.3.2/">Bootstrap</a><br>
         UI Framework: <a href="http://designmodo.github.io/Flat-UI/">Flat UI</a><br><br>
@@ -117,4 +75,4 @@
       Commons Attribution-ShareAlike 3.0 Unported License</a>.
     </div>
   </footer>
-</div>
+  </div>
