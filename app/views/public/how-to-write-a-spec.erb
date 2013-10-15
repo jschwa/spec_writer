@@ -1,0 +1,120 @@
+<div class="public-wrapper" xmlns="http://www.w3.org/1999/html">
+  <div class="container">
+    <div class="demo-headline">
+      <h1 class="demo-logo">
+        <div class="logo">
+        </div>
+        SPEC.PM
+        <small>A Simple Spec Writer for Product Managers</small>
+      </h1>
+      <div class="button">
+        <%= link_to "Start A Spec", pages_path, class: "btn btn-large btn-block btn-start-spec" %>
+      </div>
+    </div>
+
+    <!-- /demo-headline -->
+
+
+    <div class="imac"></div>
+  </div>
+
+
+  <div class="how-it-works">
+    <div class="container">
+      <h2>What is it?</h2>
+
+      <p>Spec.pm is a tool for writing product requirements. It’s a structured wiki that is specifically designed for
+        product and development teams.  It syncs with Pivotal Tracker so you don't have to manually break your spec into tickets. </p>
+
+      <p>It's used to communicate a complex feature to a development team.  A collection of user stories that make up a complex feature is called an epic.
+        Spec.pm is for writing the user stories that make up an epic. Learn more about how to write a spec.
+      </p>
+
+      <h2>Why would I use it?</h2>
+
+      <dt>Epics are best understood when read in a single document</dt>
+
+      <dd>It is very difficult for a development team to understand an epic when the underlying stories have already
+        been broken into tickets. It's much easier to understand how all the parts fit together when read in a single
+        Spec.pm document.
+      </dd>
+      <br>
+      <dt>Front and backend stories are best understood when side-by-side</dt>
+      <dd>If developers are not full stack, it's hard for the backend developer to understand exactly what the frontend
+        developer needs. Side-by-side stories solves this.
+      </dd>
+      <br>
+      <dt>Order stories for comprehension, not development priority.</dt>
+      <dd>Stories are usually prioritized in the order that developers should work on them. This is generally not the
+        best order for explaining how a feature works. Use Spec.pm to tell your development team a narrative on how
+        the feature will work.
+      </dd>
+      <br>
+
+      <dt>A spec doubles as documentation.</dt>
+
+      <dd> Looking back at a spec is a great way to remember how software was built. It helps new developers get up to
+        speed, and it helps existing developers remember the decisions that were made in the past.
+      </dd>
+      </dl>
+
+      <h2>How does it work?</h2>
+
+      <p>A spec is made up of stories</p>
+      <%= image_tag "story_list.png" %>
+
+      <h2>Adding a story</h2>
+
+      <p>When you add a story, it's pre-populated with three sections. User Story, Logic, and Acceptance Criteria.
+        Learn more about what to put in these sections.</p>
+      <%= image_tag "add_story.png" %>
+
+      <h2>Splitting Frontend & Backend</h2>
+
+      <p>Spliting the front end backend is useful when the development team isn't full stack.  This is especially true when doing mobile development.</p>
+      <%= image_tag "front_back.png" %>
+
+      <h2>Rearranging</h2>
+
+      <p>You can drag and drop stories around the page. A spec is like a narrative you are telling the developers. Order
+        your stories in a way that allows them to fully grasp how all the stories work together.</p>
+      <%= image_tag "rearrange.png" %>
+
+      <h2>Sync With Pivotal Tracker</h2>
+
+      <p>When you sync, all stories are added to a Pivotal Tracker project.  Any change to a story in Pivotal Tracker automatically updates the story in Spec.pm, and vice versa. This keeps the spec up-to-date, increasing it's utility as documentation.</p>
+      <%= image_tag "sync.png" %>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <h2>About SPEC.PM</h2>
+
+      <p>This app is largely based on 37 Signals Backpack. A phenomenal product that was <a
+      href="http://37signals.com/backpack-retired">recently shut down to new users.</a>
+
+        I used Backpack for all my spec writing so I built Spec.pm to replace it. <br><br>
+
+        I also teach a class on Product Management,  I built Spec.pm as a teaching aide for new product managers
+        as well as a functional utility. I hope it helps to get you where you are trying to go.<br><br>
+
+        Feedback is welcome. The <a href="https://github.com/jschwa/spec_writer">Github repo for this project is
+        here</a> if you wish to make modifications.<br><br>
+
+        <strong>Credits</strong><br>
+        Framework: <a href="http://getbootstrap.com/2.3.2/">Bootstrap</a><br>
+        UI Framework: <a href="http://designmodo.github.io/Flat-UI/">Flat UI</a><br><br>
+      </p>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img
+      alt="Creative Commons License" style="border-width:0"
+      src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"/></a><br/><span
+    xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Spec.pm</span> by <a
+    xmlns:cc="http://creativecommons.org/ns#" href="http://jschwa.com" property="cc:attributionName"
+    rel="cc:attributionURL">Jason Schwartz</a> is licensed under a <a rel="license"
+                                                                      href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative
+      Commons Attribution-ShareAlike 3.0 Unported License</a>.
+    </div>
+  </footer>
+</div>
