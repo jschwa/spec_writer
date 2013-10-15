@@ -10,11 +10,13 @@ class ItemsController < ApplicationController
 
   def index
     @list_items = @page.items
+    @page.fix_order
   end
 
   def index_read_only
     @page = Page.where(public: true, id: params[:page_id]).first
     @list_items = @page.items
+    @page.fix_order
   end
 
   def toggle_public

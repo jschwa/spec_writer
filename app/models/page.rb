@@ -16,6 +16,17 @@ class Page < ActiveRecord::Base
       a_item.update_attribute(:position, new_position)
     end
     touch
+    fix_order
+  end
+
+  def fix_order
+    actual_order = items.reload.collect(&:position)
+    correct_order = (0..(items.size - 1)).to_a.reverse
+    if actual_order != correct_order
+      items.each_with_index do |a_item, index|
+        a_item.update_attribute(:position, items.size - 1 - index)
+      end
+    end
   end
 
   def add_item new_item
@@ -26,6 +37,7 @@ class Page < ActiveRecord::Base
         end
       end
       touch
+      fix_order
       true
     else
       false
@@ -48,6 +60,7 @@ class Page < ActiveRecord::Base
     end
     items.delete item
     touch
+    fix_order
   end
 
   def toggle_public
