@@ -60,35 +60,39 @@
       <h2>How does it work?</h2>
 
       <p>A spec is made up of stories</p>
-      <%= image_tag "story_list.png" %>
+      <%= image_tag "story_list.png", class: "img-rounded img-responsive"  %>
 
       <h2>Adding a story</h2>
 
       <p>When you add a story, it's pre-populated with three sections. User Story, Logic, and Acceptance Criteria.
         <%= link_to "Learn about these sections.", public_how_to_path(:anchor => "sections") %> </p>
-      <%= image_tag "add_story.png" %>
+      <%= image_tag "add_story.png", class: "img-rounded img-responsive" %>
 
       <h2>Splitting Frontend & Backend</h2>
 
       <p>Spliting a story into frontend and backend is useful when the development team isn't full stack.  This is especially true when doing mobile development.</p>
-      <%= image_tag "front_back.png" %>
+      <%= image_tag "front_back.png", class: "img-rounded img-responsive"  %>
 
       <h2>Rearranging</h2>
 
       <p>You can drag and drop stories around the page. A spec is like a narrative you are telling the developers. Order
         your stories in a way that allows them to fully grasp how all the stories work together.</p>
-      <%= image_tag "rearrange.png" %>
+      <%= image_tag "rearrange.png", class: "img-rounded img-responsive"  %>
 
       <h2>Sync With Pivotal Tracker</h2>
 
       <p>When you sync, all stories are added to a Pivotal Tracker project.  Any change to a story in Pivotal Tracker automatically updates the story in Spec.pm, and vice versa. This keeps the spec up-to-date, increasing it's utility as documentation.</p>
-      <%= image_tag "sync.png" %>
+      <%= image_tag "sync.png", class: "img-rounded img-responsive"  %>
 
     </div>
+
   </div>
 
   <footer>
     <div class="container">
+      <div class="bottom-button">
+        <%= link_to "Start A Spec", pages_path, class: "btn btn-large btn-block btn-start-spec" %>
+      </div>
       <h2>About SPEC.PM</h2>
 
       <p>This app is largely based on 37 Signals Backpack. A phenomenal product that was <a
