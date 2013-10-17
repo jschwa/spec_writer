@@ -11,6 +11,9 @@ SpecWriter::Application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 
+  # fixes  static images not getting uploaded http://stackoverflow.com/questions/6458947/rails-3-1-heroku-cedar-static-image-assets-are-not-being-served
+  config.action_dispatch.x_sendfile_header = nil # For Heroku
+
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
