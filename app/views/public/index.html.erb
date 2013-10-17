@@ -27,7 +27,7 @@
         product and development teams.  It syncs with Pivotal Tracker so you don't have to manually break your spec into tickets. </p>
 
       <p>It's used to communicate a complex feature to a development team.  A collection of user stories that make up a complex feature is called an epic.
-        Spec.pm is for writing the user stories that make up an epic. Learn more about how to write a spec.
+        Spec.pm is for writing the user stories that make up an epic. <%= link_to "Learn how to write a spec.", public_how_to_path %>
       </p>
 
       <h2>Why would I use it?</h2>
@@ -46,8 +46,7 @@
       <br>
       <dt>Order stories for comprehension, not development priority.</dt>
       <dd>Stories are usually prioritized in the order that developers should work on them. This is generally not the
-        best order for explaining how a feature works. Use Spec.pm to tell your development team a narrative on how
-        the feature will work.
+        best order for explaining how a feature works. Use Spec.pm to order stories in way that best conveys how the feature will work.
       </dd>
       <br>
 
@@ -66,12 +65,12 @@
       <h2>Adding a story</h2>
 
       <p>When you add a story, it's pre-populated with three sections. User Story, Logic, and Acceptance Criteria.
-        Learn more about what to put in these sections.</p>
+        <%= link_to "Learn about these sections.", public_how_to_path(:anchor => "sections") %> </p>
       <%= image_tag "add_story.png" %>
 
       <h2>Splitting Frontend & Backend</h2>
 
-      <p>Spliting the front end backend is useful when the development team isn't full stack.  This is especially true when doing mobile development.</p>
+      <p>Spliting a story into frontend and backend is useful when the development team isn't full stack.  This is especially true when doing mobile development.</p>
       <%= image_tag "front_back.png" %>
 
       <h2>Rearranging</h2>
@@ -97,10 +96,10 @@
 
         I used Backpack for all my spec writing so I built Spec.pm to replace it. <br><br>
 
-        I also teach a class on Product Management.  I built Spec.pm as a teaching aide for new product managers
-        as well as a functional utility. I hope it helps to get you where you are trying to go.<br><br>
+        I also teach a class on <a href="https://generalassemb.ly/instructors/jason-schwartz/395">Product Management</a>.  I built Spec.pm as a teaching aide for new product managers
+        as well as a functional utility.<br><br>
 
-        Feedback is welcome. The <a href="https://github.com/jschwa/spec_writer">Github repo for this project is
+        <a href="mailto:j.schwartz4+spec@gmail.com">Feedback is welcome.</a> The <a href="https://github.com/jschwa/spec_writer">Github repo for this project is
         here</a> if you wish to make modifications.<br><br>
 
         <strong>Credits</strong><br>

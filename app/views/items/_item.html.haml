@@ -1,5 +1,15 @@
 %li.item.actions-container-parent{data: {position: item.position}, class: "#{item.itemizable_type.downcase}-item"}
+
+  -if item.position = @page.items.size - 1
+    .add-here
+      .prompt-container
+        .prompt.prompt-marker Add here
+        .line.prompt-marker
+
   .item-wrapper
+    -if item.position = @page.items.size - 1
+      = render partial: "insert_item", locals: {position: @page.items.size, show_cancel: true}
+
     .item-view-container
       = render(partial: item.itemizable_type.downcase, locals: {item.itemizable_type.downcase.to_sym => item.itemizable})
       .row-fluid.actions-container

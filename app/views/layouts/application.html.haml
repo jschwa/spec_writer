@@ -22,6 +22,9 @@
               %ul.nav.pull-right
                 - if current_user
                   %li= link_to "Logout", destroy_user_session_path, method: :delete
+                - else
+                  %li= link_to "Login", pages_path
+
       .container-fluid
         = yield
   %footer
