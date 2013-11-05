@@ -22,11 +22,12 @@ $ =>
 
 
 @initItemForm = ->
-  $(".cancel").click ->
-    $(this).parents(".item-form, .edit-form").slideUp()
-    $(this).parents(".item").find(".item-view-container").show()
+  $(".cancel").unbind().click ->
+    cancel = $(this)
+    cancel.parents(".item-form, .edit-form").unbind().slideUp(->
+      cancel.parents(".item").find(".item-view-container").show()
+    )
   initAddBackend()
-
 
 
 @fixItemsOrdering = ->
