@@ -13,8 +13,6 @@ $ =>
     revert: true
     opacity: 0.7
     forcePlaceholderSize: true
- #   create: ->
- #     $(this).height($(this).height())
   )
   $(".item-list").disableSelection()
   $("#page_public").change ->
@@ -55,7 +53,7 @@ $ =>
     $(this).parents(".item").removeClass("blue-band-visible")
 
 @initActionsContainer = ->
-  $(".actions-container-parent").mouseenter ->
+  $(".actions-container-parent").unbind().mouseenter ->
     clearItemTimeout($(this))
     hideAllActionContainers($(this))
     $(this).find(".actions-container").show()
