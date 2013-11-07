@@ -1,10 +1,14 @@
-$(".item-form").slideUp();
-<% if @page.highest?(@item) %>
-$(".item-list").prepend("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
-<%else %>
-$("li.item[data-position=<%=@item.position%>]").after("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
-<%end%>
-$(".initial-item-container").hide();
-window.initActionsContainer();
-window.fixItemsOrdering();
-window.initAddHere();
+$(".item-form:visible").fadeOut(function () {
+    <% if @page.highest?(@item) %>
+    $(".item-list").prepend("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
+    <%else %>
+    $("li.item[data-position=<%=@item.position%>]").after("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
+    <%end%>
+    $(".initial-item-container").hide();
+    window.initActionsContainer();
+    window.fixItemsOrdering();
+    window.initAddHere();
+    $("li.item[data-position=<%=@item.position%>]").css("background-color","#F1C40F").animate({
+        "background-color":"transparent"
+    },1000);
+});
