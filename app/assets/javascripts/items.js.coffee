@@ -46,7 +46,9 @@ $ =>
   $(".add-here").mouseenter ->
     hideAllActionContainers(null)
   $(".add-here").mouseleave ->
-    $(this).parents(".actions-container-parent").find(".actions-container").show()
+    actionsContainer = $(this).parents(".actions-container-parent")
+    if actionsContainer[0] == $(".item:hover")[0]
+      actionsContainer.find(".actions-container").show()
   $(".add-here, .cancel-item-container").unbind("click")
   $(".add-here").click ->
     $(".item .insert-item-container .blue-band").hide()
