@@ -15,7 +15,7 @@
     .row-fluid.page-content
       = hidden_field_tag :reorder_items_path, page_reorder_items_path(@page)
 
-      .initial-item-container{class: @page.items.any? ? "hide" : "" }
+      .initial-item-container
         = render partial: "insert_item", locals: {position: @list_items.size, show_cancel: false}
 
       %ul.item-list
