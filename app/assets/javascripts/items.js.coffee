@@ -43,6 +43,10 @@ $ =>
       $(this).attr("href", $(this).attr("href").replace(/item_position=\d+/, "item_position=#{position}"))
 
 @initAddHere = ->
+  $(".add-here").mouseenter ->
+    hideAllActionContainers(null)
+  $(".add-here").mouseleave ->
+    $(this).parents(".actions-container-parent").find(".actions-container").show()
   $(".add-here, .cancel-item-container").unbind("click")
   $(".add-here").click ->
     $(".item .insert-item-container .blue-band").hide()
