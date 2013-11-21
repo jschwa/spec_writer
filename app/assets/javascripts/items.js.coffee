@@ -63,7 +63,7 @@ $ =>
   $(".actions-container-parent").unbind().mouseenter ->
     clearItemTimeout($(this))
     hideAllActionContainers($(this))
-    if $(this).find(".add-here") != $(".add-here:hover")[0]
+    if $(this).find(".add-here")[0] != $(".add-here:hover")[0]
       $(this).find(".actions-container").show()
   $(".actions-container-parent").mouseleave ->
     actionsContainer = $(this).find(".actions-container")
