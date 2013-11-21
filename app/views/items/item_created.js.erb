@@ -1,4 +1,4 @@
-$(".item-form:visible").fadeOut(function () {
+$(".item-form:visible").fadeOut(q () {
     <% if @page.highest?(@item) %>
     $(".item-list").prepend("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
     <%else %>
@@ -7,7 +7,6 @@ $(".item-form:visible").fadeOut(function () {
     window.initActionsContainer();
     window.fixItemsOrdering();
     window.initAddHere();
-    $("li.item[data-position=<%=@item.position%>]").css("background-color","#F1C40F").animate({
-        "background-color":"transparent"
-    },1000);
+    $("li.item[data-position=<%=@item.position%>]").animate({backgroundColor: '#F1C40F'}, 200);
+    $("li.item[data-position=<%=@item.position%>]").animate({"background-color": "transparent"}, 900);
 });
