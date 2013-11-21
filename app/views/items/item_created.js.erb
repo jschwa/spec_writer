@@ -1,4 +1,4 @@
-$(".item-form:visible").fadeOut(q () {
+$(".item-form:visible").fadeOut(function() {
     <% if @page.highest?(@item) %>
     $(".item-list").prepend("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
     <%else %>
