@@ -1,5 +1,6 @@
 $("li.item[data-position=<%=@item.position%>] .edit-form").fadeOut(function () {
-    $("li.item[data-position=<%=@item.position%>]").html("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
-    $("li.item[data-position=<%=@item.position%>] .item-view-container").show();
+  $("li.item[data-position=<%=@item.position%>]").html("<%= escape_javascript(render(partial: "item", locals: {item: @item})) %>");
+  $("li.item[data-position=<%=@item.position%>] .item-view-container").show();
+  window.initAddHere();
 });
 
