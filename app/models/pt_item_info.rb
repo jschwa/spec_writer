@@ -1,5 +1,5 @@
 class PtItemInfo < ActiveRecord::Base
-  attr_accessible :item_id, :pt_json
+  attr_accessible :item_id, :pt_json, :frontend_or_backend
 
 
   def story_id

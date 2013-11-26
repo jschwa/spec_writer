@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131008142634) do
+ActiveRecord::Schema.define(:version => 20131126153056) do
 
   create_table "dividers", :force => true do |t|
     t.string   "title"
@@ -56,8 +56,9 @@ ActiveRecord::Schema.define(:version => 20131008142634) do
   create_table "pt_item_infos", :force => true do |t|
     t.integer  "item_id"
     t.text     "pt_json"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "frontend_or_backend"
   end
 
   create_table "users", :force => true do |t|
