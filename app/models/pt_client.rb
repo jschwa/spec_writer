@@ -23,7 +23,7 @@ class PTClient
           create_story(page, item, :front_end) unless item.itemizable.front_end.blank?
           create_story(page, item, :back_end) unless item.itemizable.back_end.blank?
         else
-          if item.pt_item_infos.empty? || !item_exists_in_pt?(item)
+          if item.pt_item_infos.empty? || item_doesnt_exist_in_pt?(item)
             item.pt_item_infos.destroy_all
             create_story(page, item)
           else
@@ -97,14 +97,14 @@ class PTClient
     "https://www.pivotaltracker.com/services/v5#{url}"
   end
 
-  def item_exists_in_pt?(item)
+  def item_doesnt_exist_in_pt?(item)
     http = Curl.get(pt_url(STORIES_URL.gsub("{project_id}", item.page.pt_info.project_id.to_s))) do |http|
       http.headers['X-TrackerToken'] = @api_key
       http.ssl_verify_peer = false
     end
     stories_json = JSON.parse(http.body_str)
     found_story_json = stories_json.find { |story_json| item.pt_item_infos.find { |pt_item_info| pt_item_info.same_story_id?(story_json) } }
-    !found_story_json.nil?
+    found_story_json.nil?
   end
 
 end
