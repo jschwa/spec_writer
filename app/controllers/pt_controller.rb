@@ -9,7 +9,11 @@ class PtController < ApplicationController
 
   def submit_project_selection
     update_pt_info
-    pt_client.create_stories(@page)
+    begin
+      pt_client.create_stories(@page)
+    rescue Exception => e
+      @pt_error = e
+    end
   end
 
   private

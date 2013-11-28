@@ -1,2 +1,6 @@
 $("#sync-with-pt-modal form").replaceWith("<%= escape_javascript(render partial: "pt/project_selection_form") %>");
+$("#sync-with-pt-modal form").submit(function(){
+   $(".modal-input-fields, .modal-footer").hide();
+   $(".progress-bar-container").show();
+});
 window.initComponents();

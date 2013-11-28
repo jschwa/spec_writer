@@ -1,1 +1,10 @@
-$("#sync-with-pt-modal").modal("hide");
+$(".progress-bar-container").hide();
+
+<% if @pt_error.nil? %>
+$(".sync-complete").show();
+setTimeout(function () {
+    $("#sync-with-pt-modal").modal("hide");
+}, 2000);
+<%else%>
+$(".sync-failed").show();
+<%end%>
