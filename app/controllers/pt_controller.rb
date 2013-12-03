@@ -12,7 +12,7 @@ class PtController < ApplicationController
     begin
       pt_client.create_stories(@page)
     rescue Exception => e
-      @pt_error = e
+      @pt_error = e.to_s
     end
   end
 
