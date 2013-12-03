@@ -28,6 +28,7 @@ class PTClient
   private
 
   def pt_request url, method = :get, params = {}
+    params = params.to_json unless method == :get
     http = Curl.send(method, pt_url(url), params) do |http|
       http.headers['X-TrackerToken'] = @api_key
       http.ssl_verify_peer = false
