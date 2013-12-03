@@ -9,7 +9,7 @@ class PTClient
 
   #b46cfe2001c81fb4e4f2d5c99ef67a58
   def projects_list
-    pt_request(PROJECTS_URL)
+    JSON.parse(pt_request(PROJECTS_URL))
   end
 
   def create_stories page
@@ -28,16 +28,16 @@ class PTClient
   private
 
   def pt_request url, method = :get, params = {}
-    http = Curl.send(method, pt_url(url), params.to_json) do |http|
+    http = Curl.send(method, pt_url(url), params) do |http|
       http.headers['X-TrackerToken'] = @api_key
       http.ssl_verify_peer = false
       http.headers['Content-Type'] = 'application/json' unless method == :get
     end
-    response = JSON.parse(http.body_str)
-    if response["kind"] == "error"
-      raise "#{response["error"]} #{response["general_problem"]}"
-    else
+    if http.status == "200 OK"
       http.body_str
+    else
+      response = JSON.parse(http.body_str)["data"]
+      raise "#{response["error"]} #{response["general_problem"]}"
     end
   end
 
@@ -45,8 +45,8 @@ class PTClient
     if item_doesnt_exist_in_pt?(item, description_type)
       feature = item.itemizable
       story_params = {
-          project_id: page.pt_info.project_id,
-          story_type: "feature"
+        project_id: page.pt_info.project_id,
+        story_type: "feature"
       }
       story_params = story_params.merge(page.pt_info.separate_front_end_from_back_end? ? separate_story_params(page, feature, description_type) : single_story_params(page, feature))
       response = pt_request(STORIES_URL.gsub("{project_id}", story_params[:project_id].to_s), :post, story_params)
