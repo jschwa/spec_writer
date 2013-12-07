@@ -17,7 +17,7 @@
       .navbar-inverse
         .navbar-inner
           .container-fluid
-            = link_to "sepc.pm", current_user.nil? ? root_url : pages_url, class: "brand"
+            = link_to "spec.pm", current_user.nil? ? root_url : pages_url, class: "brand"
             .nav-collapse.collapse.navbar-responsive-collapse
               %ul.nav.pull-right
                 - if current_user
