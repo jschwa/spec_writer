@@ -37,7 +37,8 @@ class PTClient
     if http.status == "200 OK"
       http.body_str
     else
-      response = JSON.parse(http.body_str)["data"]
+      response = JSON.parse(http.body_str)
+      response = response["data"] if response["data"]
       raise "#{response["error"]} #{response["general_problem"]}"
     end
   end
