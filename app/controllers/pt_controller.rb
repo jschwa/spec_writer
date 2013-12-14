@@ -2,6 +2,11 @@ class PtController < ApplicationController
 
   before_filter :authenticate_user!
 
+  def pt_sync
+    @page = Page.find(params[:page_id])
+    start_sync
+  end
+
   def submit_auth
     update_pt_info
     @projects_list = pt_client.projects_list
@@ -9,12 +14,9 @@ class PtController < ApplicationController
 
   def submit_project_selection
     update_pt_info
-    begin
-      pt_client.create_stories(@page)
-    rescue Exception => e
-      @pt_error = e.to_s
-    end
+    start_sync
   end
+
 
   private
 
@@ -25,6 +27,14 @@ class PtController < ApplicationController
 
   def pt_client
     PTClient.new(@page.pt_info.api_key)
+  end
+
+  def start_sync
+    begin
+      pt_client.create_stories(@page)
+    rescue Exception => e
+      @pt_error = e.to_s
+    end
   end
 
 end

@@ -71,6 +71,10 @@ class Page < ActiveRecord::Base
     item.position == items.count - 1
   end
 
+  def has_pt_info?
+    pt_info && pt_info.pt_json.present?
+  end
+
   private
 
   def init_pt_info

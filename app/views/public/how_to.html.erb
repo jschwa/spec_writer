@@ -9,7 +9,7 @@
     <div class="container">
       <h2>What is a spec?</h2>
         <p>When we say spec, we are referring to a collection of user stories written in document format.  To use this tool properly it&rsquo;s important to understand a few core concepts of agile project management.</p>
-      <h2>User Stories</h2>
+      <a name="user_stories"></a><h2>User Stories</h2>
         <p>A user story is a way of communicating a singular piece of functionality to a developer.</p>
       <p>They take this form:
         <pre>As a {user type} I want to {desired action} so that {benefit}</pre>
@@ -21,8 +21,8 @@
       <p><strong>{Desired Action} -</strong> Describe what that user wants to do. </p>
       <p><strong>{Benefit} -</strong> What is the value of this feature to the user?</p>
       <h2>Why are user stories useful?</h2>
-      <p>You might have found yourself in a situation where you have speced something out in detail only to have a developer produce functionality that doesn&rsquo;t make logical sense.</p>
-      <p>What happened is that the developer didn&rsquo;t understand the end goal.  Instead they were trying to follow instructions, but they came to a few critical points where they had to make a decision on their own.  Something was left out of the spec, which it almost always is, and they had to make a call on what to do.  They made a poor decision because they didn&rsquo;t understand the end goal.</p>
+      <p>You might have found yourself in a situation where you speced something out in detail only to have functionality delivered that doesn&rsquo;t make logical sense.</p>
+      <p>What happened is that the developer didn&rsquo;t understand the end goal.  Instead, they were trying to follow instructions, but they came to a few critical points where a decision had to be made.  Something was left out of the spec, and they had to make a call on what to do.  They made a poor decision because they didn&rsquo;t understand the end goal.</p>
       <p>A user story helps a developer to understand the end goal instead of the steps they need to take to get there. </p>
 
       <h2>Epics</h2>
@@ -35,14 +35,14 @@
       <h2>What should I include in my stories?</h2>
       <p id="sections">In Spec.PM, a story is prepopulated with three sections.  User story, logic, and acceptance criteria. </p>
       <br>
-      <p><strong>User Story:</strong> Learn about user stories here.</p>
+      <p><strong>User Story:</strong> <a href="#user_stories">Learn about user stories here.</a></p>
       <br>
       <p><strong>Logic:</strong>  This is where you capture the details of how the story should be implemented.  </p>
       <p>The story might say, As a user I want to register so that I can save my progress.</p>
       <p>What happens if the user registers with an email that is already in use, or a password that is too short, or users an email that is invalid?  Do you need to collect any demographic information from the user?  Where is the user taken after they register?  Is a welcome email sent? All of these details should be included in the logic section.</p>
       <p>I prefer to think through these edge cases from the start.</p>
       <p>Some teams prefer to just write the user story, which is thought of as an invitation to have a conversation.  When the developer is ready to implement the feature, they speak with the product manager and fill in the details together.</p>
-      <p>There will be some developers that do not like a high level of specificity in this section.  There are some teams that do not include this section at all.  These developers would prefer to just talk about how it will work, and maybe do some of the product work on their own. They don&rsquo;t want the product manager over prescribing.   This is something you will have to feel out on your own.  I&rsquo;ve had plenty of developers ignore this section of my specs.  In this situation I find it helpful to say,  &ldquo;I am writing down the details for myself.  There are a lot of small decisions that go into each feature, and writing them down helps me keep track.&rdquo;<br />
+      <p>There will be some developers that do not like a high level of specificity in this section.  These developers would prefer to just talk about how it will work, and maybe do some of the product work on their own.  This is something you will have to feel out on your own.  I&rsquo;ve had plenty of developers ignore this section of my specs.  In this situation I find it helpful to say,  &ldquo;I am writing down the details for myself.  There are a lot of small decisions that go into each feature, and writing them down helps me keep track.&rdquo;<br />
        <br>
         <strong>Acceptance Criteria:</strong>  This is where you write out step-by-step instructions on how you plan on testing the story once it&rsquo;s delivered.  The acceptance criteria for the user registration story might be:</p>
    <pre>

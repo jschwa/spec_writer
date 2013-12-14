@@ -89,3 +89,9 @@ clearItemTimeout = (element) ->
     $(".front-end-container").removeClass("span9").addClass("span6")
     $(".front-end-container .control-label").show()
     $(".front-end-container textarea").addClass("span11")
+
+@initPtSyncLink = ->
+  $(".start-sync").click ->
+    $("#sync-with-pt-modal").modal("show");
+    $(".modal-input-fields").hide();
+    $(".progress-bar-container").show();

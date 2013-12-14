@@ -11,6 +11,7 @@ SpecWriter::Application.routes.draw do
     get "/cancel_edit"  => "pages#cancel_edit"
     post "/sync_with_pt_auth" => "pt#submit_auth"
     post "/sync_with_pt_project_selection" => "pt#submit_project_selection"
+    get "/pt_sync" => "pt#pt_sync"
   end
 
 
