@@ -12,6 +12,7 @@ SpecWriter::Application.routes.draw do
     post "/sync_with_pt_auth" => "pt#submit_auth"
     post "/sync_with_pt_project_selection" => "pt#submit_project_selection"
     get "/pt_sync" => "pt#pt_sync"
+    post "/pt_resync" => "pt#pt_resync"
   end
 
 

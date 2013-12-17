@@ -4,7 +4,18 @@ class PtController < ApplicationController
 
   def pt_sync
     @page = Page.find(params[:page_id])
+    if @page.has_pt_info?
+      render :resync
+    else
+      render :first_sync
+    end
+
+  end
+
+  def pt_resync
+    @page = Page.find(params[:page_id])
     start_sync
+    render :sync_complete
   end
 
   def submit_auth
@@ -15,6 +26,7 @@ class PtController < ApplicationController
   def submit_project_selection
     update_pt_info
     start_sync
+    render :sync_complete
   end
 
 

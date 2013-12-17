@@ -1,4 +1,0 @@
-- if  @page.has_pt_info?
-  = link_to "Sync With Pivotal Tracker", page_pt_sync_path(@page), class: "btn btn-primary start-sync", remote: true
-- else
-  = link_to "Sync With Pivotal Tracker", "#sync-with-pt-modal", role: "button", data: {toggle: "modal"}, class: "btn btn-primary"

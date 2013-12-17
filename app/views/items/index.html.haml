@@ -3,7 +3,7 @@
     .publish-container
       = semantic_form_for @page, url: page_toggle_public_path(@page), remote: true do |f|
         = f.input :public, as: :boolean, input_html: {data: {toggle: "checkbox"}}
-      = render partial: "pt_sync_link"
+      = link_to "Sync With Pivotal Tracker", page_pt_sync_path(@page), class: "btn btn-primary start-sync", remote: true
       .public-url-container
         - if @page.public?
           = link_to(page_public_url(@page), page_public_url(@page))
@@ -21,4 +21,3 @@
       %ul.item-list
         - @list_items.each do |single_item|
           = render partial: "item", locals: {item: single_item}
-= render partial: "pt/sync_with_pt_modal"

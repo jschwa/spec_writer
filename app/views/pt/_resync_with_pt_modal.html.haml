@@ -1,0 +1,9 @@
+#sync-with-pt-modal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+    %h3 Sync with PivotalTracker
+  = semantic_form_for(@page.pt_info, url: page_pt_resync_path(@page), remote: true, method: :post) do |f|
+    .modal-body
+      = render partial: "progress_pt_modal"
+      = render partial: "sync_complete"
+      = render partial: "sync_failed"
