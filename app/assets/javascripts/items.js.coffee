@@ -95,3 +95,10 @@ clearItemTimeout = (element) ->
     $("#sync-with-pt-modal").modal("show");
     $(".modal-input-fields").hide();
     $(".progress-bar-container").show();
+
+@showPtModal = ->
+  $("#sync-with-pt-modal").modal("show")
+  $('#sync-with-pt-modal').on('hide', ->
+    $("#sync-with-pt-modal").remove()
+  )
+

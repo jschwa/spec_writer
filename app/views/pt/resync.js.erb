@@ -1,5 +1,5 @@
 $("body").append("<%= escape_javascript(render partial: 'resync_with_pt_modal') %>");
-$("#sync-with-pt-modal").modal("show");
+window.showPtModal();
 $(".progress-bar-container").show();
 $("#sync-with-pt-modal form").submit();
 

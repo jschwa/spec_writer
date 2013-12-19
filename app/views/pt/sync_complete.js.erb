@@ -1,7 +1,4 @@
 $(".progress-bar-container").hide();
-$('#sync-with-pt-modal').on('hide', function (e) {
-    $("#sync-with-pt-modal").remove();
-})
 <% if @pt_error.nil? %>
 $(".sync-complete").show();
 setTimeout(function () {
