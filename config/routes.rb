@@ -18,6 +18,10 @@ SpecWriter::Application.routes.draw do
 
   get "public/how_to"
 
+  authenticated :user do
+    root :to => "pages#index"
+  end
+
   root :to => 'public#index'
 
 

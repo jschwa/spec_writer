@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
     if current_user.pages << @page
-      redirect_to pages_path
+      redirect_to page_items_path(@page)
     else
       render :new
     end

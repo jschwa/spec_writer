@@ -7,6 +7,7 @@
 
 .container-fluid {
   padding: 0;
+  min-width: 718px;
 }
 
 .icon-move {
@@ -74,6 +75,10 @@ ul {
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
+}
+
+.login-form{
+  min-width: 310px;
 }
 
 .blue-band {

@@ -4,6 +4,7 @@
     %h3 Sync with PivotalTracker
   = semantic_form_for(@page.pt_info, url: page_sync_with_pt_auth_path(@page), remote: true, method: :post) do |f|
     .modal-body
+      .error-msg
       = f.input :api_key
     .modal-footer
       = f.submit "Next", class: "btn btn-primary"

@@ -78,7 +78,11 @@ class Page < ActiveRecord::Base
   private
 
   def init_pt_info
-    build_pt_info if pt_info.nil?
+    if pt_info.nil?
+      pt_info_with_api_key = PtInfo.where("api_key is not null")
+      api_key = pt_info_with_api_key.last.api_key if pt_info_with_api_key.count > 0
+      build_pt_info(api_key: api_key)
+    end
   end
 
 end

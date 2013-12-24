@@ -19,8 +19,12 @@ class PtController < ApplicationController
   end
 
   def submit_auth
-    update_pt_info
-    @projects_list = pt_client.projects_list
+    begin
+      update_pt_info
+      @projects_list = pt_client.projects_list
+    rescue Exception => e
+      @pt_error = e.to_s
+    end
   end
 
   def submit_project_selection
