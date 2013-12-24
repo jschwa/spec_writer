@@ -13,19 +13,21 @@
     = javascript_include_tag "application"
 
   %body
-    .navbar.navbar-fluid-top
-      .navbar-inverse
-        .navbar-inner
-          .container-fluid
-            = link_to "spec.pm", current_user.nil? ? root_url : pages_url, class: "brand"
-            .nav-collapse.collapse.navbar-responsive-collapse
-              %ul.nav.pull-right
-                - if current_user
-                  %li= link_to "Logout", destroy_user_session_path, method: :delete
-                - else
-                  %li= link_to "Login", pages_path
+    .wrapper
+      .navbar.navbar-fluid-top
+        .navbar-inverse
+          .navbar-inner
+            .container-fluid
+              = link_to "spec.pm", current_user.nil? ? root_url : pages_url, class: "brand"
+              .nav-collapse.collapse.navbar-responsive-collapse
+                %ul.nav.pull-right
+                  - if current_user
+                    %li= link_to "Logout", destroy_user_session_path, method: :delete
+                  - else
+                    %li= link_to "Login", pages_path
 
-      .container-fluid
-        = yield
-  %footer
-    %p &copy; Jason Schwartz 2013
+        .container-fluid
+          = yield
+      .push
+    %footer
+      %p &copy; Jason Schwartz 2013
