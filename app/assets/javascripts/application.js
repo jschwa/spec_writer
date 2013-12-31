@@ -15,6 +15,9 @@
 //= require twitter/bootstrap
 //= require jquery.ui.all
 //= require spec_writer
+//= require underscore
+//= require underscore.string
 //= require_tree .
-//= require rm_text_editor
+
+_.mixin(_.str.exports());
 

@@ -2,6 +2,8 @@ class SpecWriter.Views.RMTextEditor
 
   TAB_KEY = 9
   TAB_TEXT = "     "
+  ENTER_KEY = 13
+  LIST_TEXT = "*"
 
   constructor: (element) ->
     @$el = $(element)
@@ -9,21 +11,36 @@ class SpecWriter.Views.RMTextEditor
     unless @$el.data("rm-text-editor")
       @$el.data("rm-text-editor", @)
       @initTab()
+      @initNewLines()
 
   initTab: ->
-    @onKeydown(TAB_KEY, (e) =>
+    @onKey("keydown", TAB_KEY, (e) =>
       e.preventDefault()
       @insertText(TAB_TEXT)
     )
 
-  onKeydown: (keys, fun) ->
-    @$el.keydown (e) ->
+  initNewLines: ->
+    @onKey("keyup", ENTER_KEY, (e) =>
+      l = @previousLine()
+      tabsAndList =  l.match(/^(( ){5})*(\*)?/)
+      if tabsAndList
+        toInsert = tabsAndList[0]
+        if _.endsWith(toInsert, "*")
+          toInsert = toInsert + " "
+        @insertText(toInsert)
+    )
+
+  onKey: (eventName, keys, fun) ->
+    @$el[eventName] (e) ->
       keyCode = e.keyCode || e.which
       if keys == keyCode || (keys.isArray && _.include(keys, keyCode))
         fun(e)
 
+  text: ->
+    @$el.val()
+
   insertText: (text) ->
-    currentText = @$el.val()
+    currentText = @text()
     p = @caretPos()
     newText = currentText.substring(0, p) + text + currentText.substring(p,
       currentText.length)
@@ -54,3 +71,11 @@ class SpecWriter.Views.RMTextEditor
     else if @el.selectionStart
       @el.focus();
       @el.setSelectionRange(caretPos, caretPos);
+
+  previousLine: ->
+    pos = @caretPos()
+    text = @text().substring(0, pos)
+    lines = _.lines(text)
+    if lines.length > 1
+      lines[lines.length - 2]
+
