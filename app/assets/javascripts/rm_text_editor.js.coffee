@@ -4,6 +4,8 @@ class SpecWriter.Views.RMTextEditor
   TAB_TEXT = "     "
   ENTER_KEY = 13
   LIST_TEXT = "*"
+  TABS_AND_LIST_REGEXP = /^(( ){5})*(\*)?/
+  BACKSPACE_KEY = 8
 
   constructor: (element) ->
     @$el = $(element)
@@ -11,6 +13,7 @@ class SpecWriter.Views.RMTextEditor
     unless @$el.data("rm-text-editor")
       @$el.data("rm-text-editor", @)
       @initTab()
+      @initBackSpace()
       @initNewLines()
 
   initTab: ->
@@ -22,12 +25,23 @@ class SpecWriter.Views.RMTextEditor
   initNewLines: ->
     @onKey("keyup", ENTER_KEY, (e) =>
       l = @previousLine()
-      tabsAndList =  l.match(/^(( ){5})*(\*)?/)
+      tabsAndList =  l.match(TABS_AND_LIST_REGEXP)
       if tabsAndList
         toInsert = tabsAndList[0]
-        if _.endsWith(toInsert, "*")
+        if _.endsWith(toInsert, LIST_TEXT)
           toInsert = toInsert + " "
         @insertText(toInsert)
+    )
+
+  initBackSpace: ->
+    @onKey("keydown", BACKSPACE_KEY, (e) =>
+      pos = @caretPos()
+      text = @text()
+      textToPos = text.substring(0, pos)
+      if pos > 0 && _.endsWith(text, TAB_TEXT)
+        e.preventDefault()
+        newText = text.substring(0, pos - TAB_TEXT.length) + text.substring(pos, text.length)
+        @$el.val(newText)
     )
 
   onKey: (eventName, keys, fun) ->
