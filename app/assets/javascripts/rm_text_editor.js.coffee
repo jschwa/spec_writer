@@ -6,6 +6,10 @@ class SpecWriter.Views.RMTextEditor
   LIST_TEXT = "*"
   TABS_AND_LIST_REGEXP = /^(( ){5})*(\*)?/
   BACKSPACE_KEY = 8
+  # ' " ( { [
+  PAIR_CHARS = [39, 34, 40, 123, 91]
+  # ' " ) } ]
+  CLOSING_PAIR_CHARS = [39, 34, 41, 125, 93]
 
   constructor: (element) ->
     @$el = $(element)
@@ -15,6 +19,7 @@ class SpecWriter.Views.RMTextEditor
       @initTab()
       @initBackSpace()
       @initNewLines()
+      @initPairs()
 
   initTab: ->
     @onKey("keydown", TAB_KEY, (e) =>
@@ -25,7 +30,7 @@ class SpecWriter.Views.RMTextEditor
   initNewLines: ->
     @onKey("keyup", ENTER_KEY, (e) =>
       l = @previousLine()
-      tabsAndList =  l.match(TABS_AND_LIST_REGEXP)
+      tabsAndList = l.match(TABS_AND_LIST_REGEXP)
       if tabsAndList
         toInsert = tabsAndList[0]
         if _.endsWith(toInsert, LIST_TEXT)
@@ -38,28 +43,35 @@ class SpecWriter.Views.RMTextEditor
       pos = @caretPos()
       text = @text()
       textToPos = text.substring(0, pos)
-      if pos > 0 && _.endsWith(text, TAB_TEXT)
+      if pos > 0 && _.endsWith(textToPos, TAB_TEXT)
         e.preventDefault()
         newText = text.substring(0, pos - TAB_TEXT.length) + text.substring(pos, text.length)
         @$el.val(newText)
+        @setCaretPos(pos - TAB_TEXT.length)
+    )
+
+  initPairs: ->
+    @onKey("keypress", PAIR_CHARS, (e, keyIndex) =>
+      @insertText(String.fromCharCode(CLOSING_PAIR_CHARS[keyIndex]), -1)
     )
 
   onKey: (eventName, keys, fun) ->
     @$el[eventName] (e) ->
       keyCode = e.keyCode || e.which
-      if keys == keyCode || (keys.isArray && _.include(keys, keyCode))
-        fun(e)
+      if keys == keyCode || (_.isArray(keys) && _.include(keys, keyCode))
+        ind = keys.indexOf(keyCode) if _.isArray(keys)
+        fun(e, ind)
 
   text: ->
     @$el.val()
 
-  insertText: (text) ->
+  insertText: (text, newCaretOffset = 0) ->
     currentText = @text()
     p = @caretPos()
     newText = currentText.substring(0, p) + text + currentText.substring(p,
       currentText.length)
     @$el.val(newText)
-    @setCaretPos(p + text.length)
+    @setCaretPos(p + text.length + newCaretOffset)
 
   caretPos: ->
     if @el.selectionStart
