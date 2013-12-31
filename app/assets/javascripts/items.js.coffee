@@ -28,6 +28,8 @@ $ =>
       cancel.parents(".item").find(".item-view-container").fadeIn()
     )
   initAddBackend()
+  $(".feature-form textarea").each ->
+    new SpecWriter.Views.RMTextEditor($(this))
 
 
 @fixItemsOrdering = ->
