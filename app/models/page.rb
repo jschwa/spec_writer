@@ -47,6 +47,7 @@ class Page < ActiveRecord::Base
   def update_item item, item_params
     if item.update_attributes(item_params)
       touch
+      item.touch
       true
     else
       false

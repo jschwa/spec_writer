@@ -20,6 +20,7 @@ class PTClient
         if page.pt_info.separate_front_end_from_back_end?
           create_story(page, item, :front_end) unless item.itemizable.front_end.blank?
           create_story(page, item, :back_end) unless item.itemizable.back_end.blank?
+          item.touch
         else
           create_story(page, item)
         end
@@ -62,7 +63,7 @@ class PTClient
   end
 
   def update_story page, item, existing_story, description_type = nil?
-    if Time.parse(existing_story["updated_at"]) < item.itemizable.updated_at
+    if Time.parse(existing_story["updated_at"]) < item.updated_at
       feature = item.itemizable
       story_params = {
         story_type: "feature",
@@ -93,7 +94,7 @@ class PTClient
   def separate_story_params page, feature, description_type
     type_label = description_type.to_s.gsub("_", "")
     {
-      name: feature.title.blank? ? "Untitled #{feature.id} #{type_label}" : "#{feature.title} #{type_label}",
+      name: feature.title.blank? ? "Untitled #{feature.id}" : "#{feature.title}",
       labels: [{name: page.name}, {name: type_label}],
       description: feature.send(description_type)
     }
