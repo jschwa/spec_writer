@@ -88,7 +88,7 @@ class PTClient
       attributes_to_update[description_type] = description
     end
     item.itemizable.update_attributes(attributes_to_update)
-    item.update_pt_item_info(existing_story)
+    item.update_pt_item_info(existing_story.to_json)
   end
 
   def separate_story_params page, feature, description_type
