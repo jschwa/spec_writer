@@ -37,7 +37,7 @@ class PTClient
       http.ssl_verify_peer = false
       http.headers['Content-Type'] = 'application/json' unless method == :get
     end
-    if http.status == "200 OK"
+    if ["100 Continue", "200 OK"].include? http.status
       http.body_str
     else
       response = JSON.parse(http.body_str)
