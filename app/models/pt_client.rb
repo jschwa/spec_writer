@@ -93,9 +93,11 @@ class PTClient
 
   def separate_story_params page, feature, description_type
     type_label = description_type.to_s.gsub("_", "")
+    labels = [{name: page.name}]
+    labels = labels << {name: type_label} if feature.front_end.present? && feature.back_end.present?
     {
       name: feature.title.blank? ? "Untitled #{feature.id}" : "#{feature.title}",
-      labels: [{name: page.name}, {name: type_label}],
+      labels: labels,
       description: feature.send(description_type)
     }
   end
