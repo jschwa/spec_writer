@@ -5,6 +5,7 @@
   = semantic_form_for(@page.pt_info, url: page_sync_with_pt_auth_path(@page), remote: true, method: :post) do |f|
     .modal-body
       .error-msg
-      = f.input :api_key
+      = f.input :api_key, :label => "Pivotal Tracker Api Token"
+      %p Find your Pivotal Tracker API token at the bottom of <a href="https://www.pivotaltracker.com/profile" target="_blank">this page</a>
     .modal-footer
       = f.submit "Next", class: "btn btn-primary"

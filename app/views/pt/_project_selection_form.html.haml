@@ -1,8 +1,8 @@
 = semantic_form_for(@page.pt_info, url: page_sync_with_pt_project_selection_path(@page), remote: true, method: :post) do |f|
   .modal-body
     .modal-input-fields
-      = f.input :pt_json, as: :select, collection: projects_select_options, label: "Select a PivotalTracker project"
-      = f.input :separate_front_end_from_back_end, as: :boolean, input_html: {data: {toggle: "checkbox"}}
+      = f.input :pt_json, as: :select, collection: projects_select_options, label: "Select a PivotalTracker project to sync with"
+      = f.input :separate_front_end_from_back_end, label: "Create seperate tickets for frontend and backend", as: :boolean, input_html: {data: {toggle: "checkbox"}}
       = f.input :api_key, as: :hidden
     = render partial: "progress_pt_modal"
     = render partial: "sync_complete"
