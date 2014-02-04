@@ -5,15 +5,6 @@
         = @page.name
 
     .row-fluid.page-content
-
-      .row-fluid
-        .span6
-          %h3
-            Frontend
-        .span6
-          %h2
-            Backend
-
-      %ul.item-list-read-only
+      %ul.item-list
         - @list_items.each do |single_item|
           = render partial: "item_read_only", locals: {item: single_item}
