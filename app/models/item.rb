@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
 
   ITEMIZABLE_TYPES = ["Feature", "Divider"]
 
-  attr_accessible :page_id, :position, :itemizable, :itemizable_attributes, :itemizable_type
+  attr_accessible :page_id, :position, :itemizable, :itemizable_attributes, :itemizable_type, :pt_item_infos
 
   belongs_to :itemizable, polymorphic: true, dependent: :destroy
   accepts_nested_attributes_for :itemizable

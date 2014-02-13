@@ -47,9 +47,11 @@ class PtController < ApplicationController
 
   def start_sync
     begin
-      pt_client.create_stories(@page)
+      pt_client.sync_stories(@page)
     rescue Exception => e
       @pt_error = e.to_s
+      logger.error e
+      logger.error e.backtrace.join("\n")
     end
   end
 
