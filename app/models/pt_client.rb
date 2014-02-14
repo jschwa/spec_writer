@@ -13,7 +13,7 @@ class PTClient
   def projects_list
     JSON.parse(pt_request(PROJECTS_URL))
   end
-
+#
   def sync_stories page
     get_stories_from_pt(page)
     page.items.each do |item|
