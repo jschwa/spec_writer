@@ -20,5 +20,5 @@
         = render partial: "insert_item", locals: {position: @list_items.size, show_cancel: false}
 
       %ul.item-list
-        - @list_items.each do |single_item|
-          = render partial: "item", locals: {item: single_item}
+        = render partial: "item", collection:@list_items, as: :item
+

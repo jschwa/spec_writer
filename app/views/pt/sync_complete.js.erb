@@ -4,6 +4,9 @@ $(".sync-complete").show();
 setTimeout(function () {
   $("#sync-with-pt-modal").modal("hide");
 }, 2000);
+$("ul.item-list").html("<%= escape_javascript(render partial: "items/item", collection: @list_items, as: :item) %>");
+window.initActionsContainer();
+window.initAddHere();
 <%else%>
 $(".sync-failed").show();
 $(".error-msg").html("<%= @pt_error %>");

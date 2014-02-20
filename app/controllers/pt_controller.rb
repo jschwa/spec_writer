@@ -15,6 +15,7 @@ class PtController < ApplicationController
   def pt_resync
     @page = Page.find(params[:page_id])
     start_sync
+    assign_items
     render :sync_complete
   end
 
@@ -30,8 +31,11 @@ class PtController < ApplicationController
   def submit_project_selection
     update_pt_info
     start_sync
+    assign_items
     render :sync_complete
   end
+
+
 
 
   private
@@ -53,6 +57,10 @@ class PtController < ApplicationController
       logger.error e
       logger.error e.backtrace.join("\n")
     end
+  end
+
+  def assign_items
+    @list_items = @page.items
   end
 
 end
