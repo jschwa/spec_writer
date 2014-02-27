@@ -124,7 +124,13 @@ class PTClient
       labels: [{
         name: page.name
       }],
-      description: "
+      description: single_story_description(feature)
+    }
+  end
+
+  def single_story_description feature
+    if feature.back_end.present?
+      "
       #{FRONTEND_MARKER}
 
       #{feature.front_end}
@@ -133,7 +139,10 @@ class PTClient
 
       #{feature.back_end}
       "
-    }
+    else
+      feature.front_end
+    end
+
   end
 
 
