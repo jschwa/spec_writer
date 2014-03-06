@@ -9,7 +9,6 @@ class PtController < ApplicationController
     else
       render :first_sync
     end
-
   end
 
   def pt_resync
