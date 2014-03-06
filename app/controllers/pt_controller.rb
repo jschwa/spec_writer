@@ -35,8 +35,10 @@ class PtController < ApplicationController
     render :sync_complete
   end
 
-
-
+  def pt_edit_settings
+    @page = Page.find(params[:page_id])
+    render :first_sync
+  end
 
   private
 

@@ -1,10 +1,15 @@
 .spec_page
   .spec-content
     .publish-container
-
+      %link{href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet"}/
       = semantic_form_for @page, url: page_toggle_public_path(@page), remote: true do |f|
         = f.input :public, as: :boolean, input_html: {data: {toggle: "checkbox"}}
       = link_to "Sync With Pivotal Tracker", page_pt_sync_path(@page), class: "btn btn-primary start-sync", remote: true
+      = link_to "", page_pt_edit_settings_path(@page), class: "fa fa-1x fa-cog", remote: true
+
+
+
+
       .public-url-container
         - if @page.public?
           = link_to(page_public_url(@page), page_public_url(@page))
