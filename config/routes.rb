@@ -16,6 +16,10 @@ SpecWriter::Application.routes.draw do
     get "/pt_edit_settings" => "pt#pt_edit_settings"
   end
 
+  resource :subscription do
+
+  end
+
 
   get "public/how_to"
 

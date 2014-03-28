@@ -2,7 +2,12 @@
   .hero-unit
     .main-content
       %h1{ :style => "margin-bottom: 20px" } Specs
-      %p= link_to "New Spec",  new_page_path, :class => "btn btn-primary"
+      %p
+        - if current_user.can_add_page?
+          = link_to "New Spec",  new_page_path, :class => "btn btn-primary"
+        - else
+          = link_to "New Spec", "#upgrade-modal", data: {toggle: "modal"}
+          = render partial: "pages/upgrade_modal"
       .row-fluid.page-list
         - @pages.each do |page|
           .page
