@@ -18,7 +18,7 @@
           <li>1 Spec</li>
         </ul>
         <h3>Free</h3>
-        <%= link_to 'Subscribe', new_user_registration_path(:plan => 'silver'), :class => 'btn btn-primary' %>
+        <%= link_to 'Try writing a spec', pages_path, :class => 'btn btn-primary' %>
       </div>
 
       <div class="span2 well featured">
@@ -27,6 +27,8 @@
           <li>Unlimited Specs</li>
         </ul>
         <h3>$9.99/month</h3>
-        <%= link_to 'Subscribe', new_user_registration_path(:plan => 'gold'), :class => 'btn btn-primary' %>
+        <%= link_to 'Write specs like a pro', payment_subscription_path, :class => 'btn btn-primary' %>
       </div>
     </div>
+  </div>
+</div>

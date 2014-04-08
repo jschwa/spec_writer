@@ -5,8 +5,8 @@ gem 'haml-rails', '~> 0.3.5'
 gem 'formtastic'
 gem 'bootstrap-sass-rails', '~> 2.3.1.1'
 gem 'formtastic-bootstrap'
-
-
+gem 'stripe', '~> 1.10.1'
+gem 'rails_config', '0.3.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

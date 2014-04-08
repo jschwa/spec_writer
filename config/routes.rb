@@ -17,7 +17,7 @@ SpecWriter::Application.routes.draw do
   end
 
   resource :subscription do
-
+    get "/payment" => "subscriptions#payment"
   end
 
 
