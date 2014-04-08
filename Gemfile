@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'haml-rails', '~> 0.3.5'
+gem 'haml-rails', '~> 0.4'
 gem 'formtastic'
 gem 'bootstrap-sass-rails', '~> 2.3.1.1'
 gem 'formtastic-bootstrap'
