@@ -1,0 +1,32 @@
+<div class="public-wrapper" xmlns="http://www.w3.org/1999/html">
+  <% content_for :title do %>Spec Writer For Product Managers - SPEC.PM
+  <% end %>
+  <div class="container">
+    <div class="demo-headline">
+      <h1 class="demo-logo">
+        <div class="logo">
+        </div>
+        SPEC.PM
+        <small>A Simple Spec Writer for Product Managers</small>
+      </h1>
+    </div>
+
+    <div class="row span8 plans">
+      <div class="span2 well">
+        <div class="plan"><h2>Free</h2></div>
+        <ul class="unstyled">
+          <li>1 Spec</li>
+        </ul>
+        <h3>Free</h3>
+        <%= link_to 'Subscribe', new_user_registration_path(:plan => 'silver'), :class => 'btn btn-primary' %>
+      </div>
+
+      <div class="span2 well featured">
+        <div class="plan featured-plan"><h2>Unlimited</h2></div>
+        <ul class="unstyled">
+          <li>Unlimited Specs</li>
+        </ul>
+        <h3>$9.99/month</h3>
+        <%= link_to 'Subscribe', new_user_registration_path(:plan => 'gold'), :class => 'btn btn-primary' %>
+      </div>
+    </div>
