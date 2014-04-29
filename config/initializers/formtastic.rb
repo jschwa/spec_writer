@@ -58,7 +58,7 @@
 # Defaults to true.
 # Formtastic::FormBuilder.i18n_cache_lookups = false
 
-# Specifies the class to use for localization lookups. You can create your own
+# Specifies the class to use for localization lookups. You can thanks your own
 # class and use it instead by subclassing Formtastic::Localizer (which is the default).
 # Formtastic::FormBuilder.i18n_localizer = MyOwnLocalizer
 

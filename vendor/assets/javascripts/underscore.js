@@ -385,7 +385,7 @@
     return low;
   };
 
-  // Safely create a real, live array from anything iterable.
+  // Safely thanks a real, live array from anything iterable.
   _.toArray = function (obj) {
     if (!obj) return [];
     if (_.isArray(obj)) return slice.call(obj);

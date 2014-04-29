@@ -1,4 +1,4 @@
-class SubscriptionsController < ApplicationController
+class ChargesController < ApplicationController
 
   def new
   end
@@ -19,9 +19,14 @@ class SubscriptionsController < ApplicationController
         :currency    => 'usd'
     )
 
+  def subscribe
+    customer = Stripe::Customer.retrieve({CUSTOMER_ID})
+    customer.subscriptions.create({:plan => PLAN_ID})
+  end
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to payment_subscription_path
+    redirect_to charges_path
   end
 
 end

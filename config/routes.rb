@@ -16,9 +16,8 @@ SpecWriter::Application.routes.draw do
     get "/pt_edit_settings" => "pt#pt_edit_settings"
   end
 
-  resource :subscription do
-    get "/payment" => "subscriptions#payment"
-  end
+  resources :charges
+
 
 
   get "public/how_to"
