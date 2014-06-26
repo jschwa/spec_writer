@@ -20,7 +20,7 @@ class ChargesController < ApplicationController
     )
 
   def subscribe
-    customer = Stripe::Customer.retrieve({CUSTOMER_ID})
+    customer = Stripe::Customer.retrieve(CUSTOMER_ID)
     customer.subscriptions.create({:plan => PLAN_ID})
   end
 
