@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   has_many :pages, dependent: :destroy, order: "pages.updated_at desc"
 
   def can_add_page?
-    pages.size == 0 || plan == "unlimited"
+    #pages.size == 0 || plan == "unlimited"
+    true
   end
 
 end
