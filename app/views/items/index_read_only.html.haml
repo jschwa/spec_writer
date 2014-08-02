@@ -8,3 +8,11 @@
       %ul.item-list
         - @list_items.each do |single_item|
           = render partial: "item_read_only", locals: {item: single_item}
+
+    .quicknavbox{:id => "quicknavbox"}
+      :javascript
+        $('h3.title').each(function() {
+            var id = $(this).text().replace(' ', '_');
+            $(this).attr('id', id);
+            $('<a/>', {href: '#'+ id, text: $(this).text(), style: 'display:block;' }).appendTo(quicknavbox);
+        });
