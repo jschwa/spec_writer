@@ -296,12 +296,13 @@ html, body {
 .quicknavbox {
   position: fixed;
   top: 206px;
-  right: 3px;
+  right: 1px;
   border: 1px solid #95A5A6;
   background: #344953;
   padding: 12px;
   z-index: 999;
-  font-size: 15px
+  font-size: 15px;
+  width: 158px;
 }
 
 
