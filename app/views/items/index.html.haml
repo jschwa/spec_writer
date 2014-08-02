@@ -27,3 +27,10 @@
       %ul.item-list
         = render partial: "item", collection:@list_items, as: :item
 
+    .quicknavbox{:id => "quicknavbox"}
+      :javascript
+        $('h3.title').each(function() {
+            var id = $(this).text().replace(' ', '_');
+            $(this).attr('id', id);
+            $('<a/>', {href: '#'+ id, text: $(this).text(), style: 'display:block;' }).appendTo(quicknavbox);
+        });
