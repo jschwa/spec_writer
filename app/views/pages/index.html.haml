@@ -6,7 +6,7 @@
         - if current_user.can_add_page?
           = link_to "New Spec",  new_page_path, :class => "btn btn-primary"
         - else
-          = link_to "New Spec", "#upgrade-modal", data: {toggle: "modal"}
+          = link_to "New Spec", "#upgrade-modal", data: {toggle: "modal"}, :class => "btn btn-primary"
           = render partial: "pages/upgrade_modal"
       .row-fluid.page-list
         - @pages.each do |page|
